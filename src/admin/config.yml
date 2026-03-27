@@ -1,0 +1,375 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: https://bgstravelandtourism.netlify.app
+display_url: https://bgstravelandtourism.netlify.app
+logo_url: /assets/images/BGS Logo white and black_1.png
+
+collections:
+
+  # ============================================================
+  # PACKAGES
+  # ============================================================
+  - name: "packages"
+    label: "Packages & Tours"
+    label_singular: "Package"
+    folder: "content/packages"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{destination}} | AED {{price_from}}"
+    fields:
+      - { label: "Package Title", name: title, widget: string }
+      - { label: "Slug (URL)", name: slug, widget: string, hint: "e.g. dubai-desert-safari-evening" }
+      - label: "Destination"
+        name: destination
+        widget: select
+        options: [Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah, Tanzania, South Africa, Uganda, Ethiopia, Zambia, Malawi, Mozambique, Kenya, India, Pakistan, Indonesia, Germany, United Kingdom, Moldova, Panama]
+      - label: "Category"
+        name: category
+        widget: select
+        options: [Desert Experience, Water Experience, Cultural & Heritage, City & Landmarks, Luxury & Exclusive, Adventure & Sports, Shopping, Family, Nightlife, Safari & Wildlife, Mountain & Trekking, Beach & Island, City Break]
+      - label: "Duration"
+        name: duration
+        widget: select
+        options: [Half Day, Full Day, Overnight, 2 Days, 3–4 Days, 5–7 Days, 8–10 Days, 10–14 Days, 14+ Days]
+      - label: "Group Type"
+        name: group_type
+        widget: select
+        options: [Solo, Couples, Family, Group (5+), Corporate, Honeymoon]
+      - label: "Budget Tier"
+        name: budget_tier
+        widget: select
+        options: [Budget (under AED 200), Mid-Range (AED 200–600), Premium (AED 600–1500), Luxury (AED 1500–3500), Ultra-Luxury (AED 3500+)]
+      - { label: "Price From (AED)", name: price_from, widget: number }
+      - { label: "Original Price / Was (AED)", name: price_was, widget: number, required: false, hint: "Leave blank if no strikethrough price" }
+      - { label: "Featured Package?", name: featured, widget: boolean, default: false }
+      - { label: "Best Seller?", name: best_seller, widget: boolean, default: false }
+      - { label: "Hero Image", name: hero_image, widget: image }
+      - label: "Gallery"
+        name: gallery
+        widget: list
+        required: false
+        field: { label: Image, name: image, widget: image }
+      - { label: "Short Description (for cards)", name: excerpt, widget: text, hint: "2–3 sentences max" }
+      - { label: "Full Description", name: description, widget: markdown }
+      - label: "Highlights"
+        name: highlights
+        widget: list
+        required: false
+        field: { label: Highlight, name: highlight, widget: string }
+      - label: "Itinerary"
+        name: itinerary
+        widget: list
+        required: false
+        fields:
+          - { label: "Day", name: day, widget: string, hint: "e.g. Day 1" }
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text }
+          - { label: "Meals", name: meals, widget: string, required: false, hint: "e.g. Breakfast, Dinner" }
+          - { label: "Accommodation", name: accommodation, widget: string, required: false }
+      - label: "What's Included"
+        name: inclusions
+        widget: list
+        required: false
+        field: { label: Item, name: item, widget: string }
+      - label: "Not Included"
+        name: exclusions
+        widget: list
+        required: false
+        field: { label: Item, name: item, widget: string }
+      - label: "Pricing Table"
+        name: pricing
+        widget: object
+        required: false
+        fields:
+          - { label: "Shared / Per Person", name: shared, widget: string, required: false }
+          - { label: "Private (2 pax)", name: private_2, widget: string, required: false }
+          - { label: "Private (4 pax)", name: private_4, widget: string, required: false }
+          - { label: "Group (10+)", name: group, widget: string, required: false }
+      - label: "FAQs"
+        name: faqs
+        widget: list
+        required: false
+        fields:
+          - { label: "Question", name: question, widget: string }
+          - { label: "Answer", name: answer, widget: text }
+      - { label: "SEO Title", name: seo_title, widget: string, required: false }
+      - { label: "SEO Description", name: seo_description, widget: text, required: false }
+
+  # ============================================================
+  # DESTINATIONS
+  # ============================================================
+  - name: "destinations"
+    label: "Destinations"
+    label_singular: "Destination"
+    folder: "content/destinations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Country / Destination Name", name: title, widget: string }
+      - { label: "Slug (URL)", name: slug, widget: string }
+      - label: "Region"
+        name: region
+        widget: select
+        options: [UAE, East Africa, Southern Africa, South Asia, Southeast Asia, Europe, Americas]
+      - { label: "Tagline", name: tagline, widget: string, hint: "e.g. The Complete Africa Experience" }
+      - { label: "Hero Image", name: hero_image, widget: image }
+      - { label: "Card Image", name: card_image, widget: image }
+      - { label: "Description", name: description, widget: markdown }
+      - { label: "Best Time to Visit", name: best_time, widget: string }
+      - { label: "Currency", name: currency, widget: string }
+      - { label: "Language", name: language, widget: string }
+      - { label: "Visa Required?", name: visa_required, widget: string, hint: "e.g. Yes – BGS handles it / Visa on arrival / Not required" }
+      - { label: "Flight Time from Dubai", name: flight_time, widget: string }
+      - { label: "Featured on Homepage?", name: featured, widget: boolean, default: false }
+      - { label: "Package Count (display)", name: package_count, widget: number, required: false }
+      - { label: "SEO Title", name: seo_title, widget: string, required: false }
+      - { label: "SEO Description", name: seo_description, widget: text, required: false }
+
+  # ============================================================
+  # VISA SERVICES
+  # ============================================================
+  - name: "visas"
+    label: "Visa Services"
+    label_singular: "Visa Service"
+    folder: "content/visas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Visa Title", name: title, widget: string, hint: "e.g. Tanzania Tourist Visa" }
+      - { label: "Slug", name: slug, widget: string }
+      - label: "Country"
+        name: country
+        widget: select
+        options: [UAE (Dubai), Tanzania, South Africa, Uganda, Ethiopia, Zambia, Malawi, Mozambique, Kenya, India, Pakistan, Indonesia, Germany, United Kingdom, Moldova, Panama, Schengen, Multiple]
+      - label: "Visa Type"
+        name: visa_type
+        widget: select
+        options: [Tourist, Business, Transit, Student, Residence, Work, Multiple Entry]
+      - { label: "Processing Time", name: processing_time, widget: string, hint: "e.g. 3–5 working days" }
+      - { label: "Price (AED)", name: price, widget: number }
+      - { label: "Validity", name: validity, widget: string, hint: "e.g. 30 days single entry" }
+      - { label: "Hero Image", name: hero_image, widget: image, required: false }
+      - { label: "Description", name: description, widget: markdown }
+      - label: "Requirements"
+        name: requirements
+        widget: list
+        field: { label: Requirement, name: requirement, widget: string }
+      - { label: "Featured?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # FLIGHTS
+  # ============================================================
+  - name: "flights"
+    label: "Flight Deals"
+    label_singular: "Flight Deal"
+    folder: "content/flights"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Route Title", name: title, widget: string, hint: "e.g. Dubai to Nairobi — Return" }
+      - { label: "Slug", name: slug, widget: string }
+      - { label: "Origin", name: origin, widget: string, default: "Dubai (DXB)" }
+      - { label: "Destination City", name: destination_city, widget: string }
+      - { label: "Destination Airport Code", name: destination_code, widget: string }
+      - label: "Trip Type"
+        name: trip_type
+        widget: select
+        options: [Return, One Way, Multi-City]
+      - label: "Class"
+        name: flight_class
+        widget: select
+        options: [Economy, Business, First Class, Premium Economy]
+      - { label: "Price From (AED)", name: price_from, widget: number }
+      - { label: "Airline(s)", name: airlines, widget: string, hint: "e.g. Emirates, Kenya Airways" }
+      - { label: "Flight Duration", name: duration, widget: string }
+      - { label: "Travel Period", name: travel_period, widget: string, hint: "e.g. April – June 2026" }
+      - { label: "Hero Image", name: hero_image, widget: image, required: false }
+      - { label: "Description", name: description, widget: text, required: false }
+      - { label: "Featured Deal?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # HOTELS
+  # ============================================================
+  - name: "hotels"
+    label: "Hotels & Stays"
+    label_singular: "Hotel"
+    folder: "content/hotels"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Hotel Name", name: title, widget: string }
+      - { label: "Slug", name: slug, widget: string }
+      - label: "Destination"
+        name: destination
+        widget: select
+        options: [Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah, Tanzania, South Africa, Uganda, Ethiopia, Zambia, Malawi, Mozambique, India, Pakistan, Indonesia, Germany, United Kingdom, Moldova, Panama]
+      - label: "Star Rating"
+        name: stars
+        widget: select
+        options: ["3 Stars", "4 Stars", "5 Stars", "Boutique", "Safari Lodge", "Resort"]
+      - { label: "Price From (AED / night)", name: price_from, widget: number }
+      - { label: "Hero Image", name: hero_image, widget: image }
+      - label: "Gallery"
+        name: gallery
+        widget: list
+        required: false
+        field: { label: Image, name: image, widget: image }
+      - { label: "Description", name: description, widget: markdown }
+      - label: "Amenities"
+        name: amenities
+        widget: list
+        required: false
+        field: { label: Amenity, name: amenity, widget: string }
+      - { label: "Featured?", name: featured, widget: boolean, default: false }
+      - { label: "BGS Partner?", name: partner, widget: boolean, default: false }
+
+  # ============================================================
+  # TRANSPORT / FLEET
+  # ============================================================
+  - name: "transport"
+    label: "Transport & Fleet"
+    label_singular: "Transport Option"
+    folder: "content/transport"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Vehicle / Service Name", name: title, widget: string, hint: "e.g. Luxury Mercedes Sprinter — Airport Transfer" }
+      - { label: "Slug", name: slug, widget: string }
+      - label: "Type"
+        name: transport_type
+        widget: select
+        options: [Sedan, SUV, Luxury SUV, Van (7 pax), Minibus (14 pax), Coach (30+ pax), Limousine, Safari 4x4]
+      - label: "Service"
+        name: service
+        widget: select
+        options: [Airport Transfer, City Transfer, Day Tour, Multi-Day, Desert Transfer, Safari Transfer, Corporate]
+      - { label: "Passenger Capacity", name: capacity, widget: number }
+      - { label: "Price From (AED)", name: price_from, widget: number }
+      - { label: "Vehicle Image", name: image, widget: image }
+      - { label: "Description", name: description, widget: markdown }
+      - label: "Features"
+        name: features
+        widget: list
+        required: false
+        field: { label: Feature, name: feature, widget: string, hint: "e.g. Air-conditioned, WiFi, Child seat available" }
+      - { label: "Featured?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # ACTIVITIES & EXCURSIONS
+  # ============================================================
+  - name: "activities"
+    label: "Activities & Excursions"
+    label_singular: "Activity"
+    folder: "content/activities"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Activity Title", name: title, widget: string }
+      - { label: "Slug", name: slug, widget: string }
+      - label: "Destination"
+        name: destination
+        widget: select
+        options: [Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah, Tanzania, South Africa, Uganda, Ethiopia, India, Pakistan, Indonesia, Germany, United Kingdom, Moldova, Panama]
+      - label: "Category"
+        name: category
+        widget: select
+        options: [Desert, Water Sports, Cultural, City Tour, Adventure, Luxury, Family, Nightlife & Entertainment, Wildlife, Trekking]
+      - label: "Duration"
+        name: duration
+        widget: select
+        options: [1–2 Hours, Half Day, Full Day, Overnight]
+      - { label: "Price From (AED)", name: price_from, widget: number }
+      - { label: "Hero Image", name: hero_image, widget: image }
+      - { label: "Short Description", name: excerpt, widget: text }
+      - { label: "Full Description", name: description, widget: markdown }
+      - label: "What's Included"
+        name: inclusions
+        widget: list
+        required: false
+        field: { label: Item, name: item, widget: string }
+      - { label: "Featured?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # CONCIERGE SERVICES
+  # ============================================================
+  - name: "concierge"
+    label: "Concierge Services"
+    label_singular: "Concierge Service"
+    folder: "content/concierge"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: title, widget: string, hint: "e.g. VIP Airport Meet & Greet" }
+      - { label: "Slug", name: slug, widget: string }
+      - label: "Service Type"
+        name: service_type
+        widget: select
+        options: [Airport Meet & Greet, Restaurant Reservations, Event Tickets, Yacht Charter, Private Chef, Spa & Wellness, Shopping Assistant, Business Concierge, Nanny / Childcare, Security & Escort, Medical Assistance, Other]
+      - { label: "Hero Image", name: hero_image, widget: image, required: false }
+      - { label: "Short Description", name: excerpt, widget: text }
+      - { label: "Full Description", name: description, widget: markdown }
+      - { label: "Price / Pricing Note", name: price_note, widget: string, hint: "e.g. From AED 150 / POA / Complimentary for bookings over AED 5000" }
+      - { label: "Featured?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # BLOG
+  # ============================================================
+  - name: "blog"
+    label: "Blog & Travel Guides"
+    label_singular: "Blog Post"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Slug", name: slug, widget: string }
+      - { label: "Publish Date", name: date, widget: datetime }
+      - label: "Category"
+        name: category
+        widget: select
+        options: [Dubai Tips, Africa Guides, Asia Guides, Travel Tips, Visa & Documents, Food & Culture, Adventure, Luxury Travel, Family Travel, Seasonal]
+      - label: "Related Destination"
+        name: destination
+        widget: select
+        required: false
+        options: [Dubai, Abu Dhabi, Tanzania, South Africa, Uganda, Ethiopia, Zambia, Malawi, Mozambique, India, Pakistan, Indonesia, Germany, United Kingdom, Moldova, Panama]
+      - { label: "Author", name: author, widget: string, default: "BGS Travel & Tourism" }
+      - { label: "Hero Image", name: hero_image, widget: image }
+      - { label: "Excerpt (for card)", name: excerpt, widget: text }
+      - { label: "Body", name: body, widget: markdown }
+      - { label: "SEO Title", name: seo_title, widget: string, required: false }
+      - { label: "SEO Description", name: seo_description, widget: text, required: false }
+      - { label: "Featured Post?", name: featured, widget: boolean, default: false }
+
+  # ============================================================
+  # SITE SETTINGS (Global)
+  # ============================================================
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "content/settings/general.yml"
+        fields:
+          - { label: "WhatsApp Number", name: whatsapp_number, widget: string, default: "+971501234567" }
+          - { label: "Phone Number", name: phone, widget: string }
+          - { label: "Email", name: email, widget: string }
+          - { label: "Dubai Office Address", name: address_dubai, widget: text }
+          - { label: "Dubai Tourism License Number", name: license_number, widget: string }
+          - { label: "Announcement Bar Text", name: announcement_text, widget: string }
+          - { label: "Announcement Bar Active?", name: announcement_active, widget: boolean, default: true }
+      - label: "Social Media"
+        name: "social"
+        file: "content/settings/social.yml"
+        fields:
+          - { label: "Instagram URL", name: instagram, widget: string, required: false }
+          - { label: "Facebook URL", name: facebook, widget: string, required: false }
+          - { label: "TikTok URL", name: tiktok, widget: string, required: false }
+          - { label: "YouTube URL", name: youtube, widget: string, required: false }
+          - { label: "LinkedIn URL", name: linkedin, widget: string, required: false }

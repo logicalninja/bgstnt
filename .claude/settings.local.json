@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 /Users/luketaylor/.claude/skills/ui-ux-pro-max/scripts/search.py \"luxury travel tourism Dubai adventure safari booking\" --design-system -p \"BGS Travel and Tourism\" -f markdown)",
+      "Bash(python3 /Users/luketaylor/.claude/skills/ui-ux-pro-max/scripts/search.py \"hero social-proof testimonial CTA trust\" --domain landing -n 4)",
+      "WebSearch",
+      "WebFetch(domain:wdonlines.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -H \"Authorization: Bearer pit-74d1f0e5-9c93-4212-8654-8334b446af6b\" -H \"Version: 2021-07-28\" \"https://services.leadconnectorhq.com/locations/ykfMGkuT2nSs9GMq8zzy\")",
+      "Bash(curl -s -H \"Authorization: Bearer pit-74d1f0e5-9c93-4212-8654-8334b446af6b\" -H \"Version: 2021-07-28\" \"https://services.leadconnectorhq.com/funnels/?locationId=ykfMGkuT2nSs9GMq8zzy&limit=20\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -H \"Authorization: Bearer pit-74d1f0e5-9c93-4212-8654-8334b446af6b\" -H \"Version: 2021-07-28\" \"https://services.leadconnectorhq.com/funnels/page?locationId=ykfMGkuT2nSs9GMq8zzy&funnelId=nrdOBDUrr6UbU2GAgL95&limit=5&offset=0\")",
+      "Bash(curl -s -w \"\\\\n---HTTP:%{http_code}\" -X PUT -H \"Authorization: Bearer pit-74d1f0e5-9c93-4212-8654-8334b446af6b\" -H \"Version: 2021-07-28\" -H \"Content-Type: application/json\" -d '{\"\"name\"\":\"\"Home\"\",\"\"stepId\"\":\"\"1ea66d2b-1fb5-42d5-9cde-5f0eaf2c3f91\"\",\"\"funnelId\"\":\"\"nrdOBDUrr6UbU2GAgL95\"\"}' \"https://services.leadconnectorhq.com/funnels/page/l2A7qHjaSIJO5el6MEQF\")",
+      "Bash(curl -s -w \"\\\\n---HTTP:%{http_code}\" -X PUT -H \"Authorization: Bearer pit-74d1f0e5-9c93-4212-8654-8334b446af6b\" -H \"Version: 2021-07-28\" -H \"Content-Type: application/json\" -d \"{\"\"trackingCodeHead\"\":\"\"<!-- BGS HEAD -->\"\",\"\"trackingCodeBody\"\":\"\"<!-- BGS BODY -->\"\"}\" \"https://services.leadconnectorhq.com/funnels/nrdOBDUrr6UbU2GAgL95\")",
+      "Bash(netlify --version)",
+      "Bash(npm --version)",
+      "Bash(npm install:*)",
+      "Bash(netlify deploy:*)",
+      "Bash(netlify login:*)",
+      "Bash(ls -lt ~/Downloads/*.png)",
+      "Bash(npm list:*)",
+      "Bash(netlify status:*)",
+      "Skill(seo-fundamentals)",
+      "Skill(seo-fundamentals:*)",
+      "Bash(python3:*)",
+      "Bash(grep -l \"</body>\" \"/Users/luketaylor/BGS Travel and Tourism/src/\"*.html)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(if ! grep -q \"netlify-identity-widget\" \"$f\")",
+      "Bash(then)",
+      "Bash(sed -i '' 's|</body>|  <script src=\"\"https://identity.netlify.com/v1/netlify-identity-widget.js\"\"></script>\\\\n  <script>\\\\n    if \\(window.netlifyIdentity\\) {\\\\n      window.netlifyIdentity.on\\(\"\"init\"\", function\\(user\\) {\\\\n        if \\(!user\\) { window.netlifyIdentity.on\\(\"\"login\"\", function\\(\\) { document.location.href = \"\"/admin/\"\"; }\\); }\\\\n      }\\);\\\\n    }\\\\n  </script>\\\\n</body>|' \"$f\")"
+    ]
+  }
+}

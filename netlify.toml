@@ -1,0 +1,86 @@
+[build]
+  publish = "src"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Clean URLs — redirect /page to /page.html
+[[redirects]]
+  from = "/home"
+  to = "/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/visa"
+  to = "/visa.html"
+  status = 200
+
+[[redirects]]
+  from = "/packages"
+  to = "/packages.html"
+  status = 200
+
+[[redirects]]
+  from = "/destinations"
+  to = "/destinations.html"
+  status = 200
+
+[[redirects]]
+  from = "/activities"
+  to = "/activities.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/flights"
+  to = "/flights.html"
+  status = 200
+
+[[redirects]]
+  from = "/hotels"
+  to = "/hotels.html"
+  status = 200
+
+[[redirects]]
+  from = "/transport"
+  to = "/transport.html"
+  status = 200
+
+[[redirects]]
+  from = "/concierge"
+  to = "/concierge.html"
+  status = 200

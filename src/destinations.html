@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations | BGS Travel &amp; Tourism — Dubai, Africa, Asia &amp; Europe</title>
+  <meta name="description" content="Explore all 15 BGS Travel destinations — Dubai, Tanzania, Uganda, South Africa, India, Indonesia, Europe and more. One company, offices on the ground everywhere we sell." />
+  <meta property="og:title" content="Destinations | BGS Travel &amp; Tourism" />
+  <meta property="og:description" content="From Dubai's desert dunes to African savannahs, Asian temples, and European cities — one company with offices on the ground in every destination we sell." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+    /* ── Destinations Hero ── */
+    .dest-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+    .dest-hero__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .dest-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .dest-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(13,27,42,0.88) 0%,
+        rgba(13,27,42,0.65) 60%,
+        rgba(13,27,42,0.45) 100%
+      );
+    }
+    .dest-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 64px 24px;
+    }
+    @media (min-width: 768px)  { .dest-hero__content { padding: 80px 40px; } }
+    @media (min-width: 1024px) { .dest-hero__content { padding: 80px 60px; } }
+    .dest-hero__eyebrow { color: var(--gold); margin-bottom: 16px; }
+    .dest-hero__headline { color: var(--white); margin-bottom: 20px; }
+    .dest-hero__sub {
+      color: var(--text-light);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .dest-hero__search {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--white);
+      border-radius: var(--radius-btn);
+      overflow: hidden;
+      max-width: 480px;
+      box-shadow: var(--shadow-lg);
+    }
+    .dest-hero__search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px 20px;
+      font-size: 0.9375rem;
+      color: var(--navy);
+      font-family: var(--font-body);
+      background: transparent;
+    }
+    .dest-hero__search-input::placeholder { color: var(--text-muted); }
+    .dest-hero__search-btn {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 14px 22px;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dest-hero__search-btn:hover { background: var(--gold-light); }
+
+    /* ── Section dividers ── */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .section-rule::before,
+    .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-sand);
+    }
+    .section-rule--dark::before,
+    .section-rule--dark::after {
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* ── UAE Destination Cards (3-col, image cards) ── */
+    /* Reuses .destination-card from style.css */
+
+    /* ── Africa Cards with dark earth bg ── */
+    /* Reuses .africa-card from style.css */
+
+    /* ── Large Feature Card ── */
+    .feature-card {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .feature-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .feature-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.90) 0%, rgba(13,27,42,0.40) 55%, transparent 100%);
+    }
+    .feature-card__body {
+      position: relative;
+      z-index: 1;
+      padding: 36px 40px;
+      width: 100%;
+    }
+    .feature-card__badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+    .feature-card__name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .feature-card__tagline {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .feature-card__highlights {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    .feature-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border-radius: var(--radius-btn);
+      transition: var(--transition);
+    }
+    .feature-card__link:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── 2-col destination grid ── */
+    .grid-2-dest {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .grid-2-dest { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── Standard destination card (for Asia / SE Asia / Europe) ── */
+    .dest-card {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      align-items: flex-end;
+      transition: var(--transition-slow);
+    }
+    .dest-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-dark); }
+    .dest-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .dest-card:hover .dest-card__img { transform: scale(1.04); }
+    .dest-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.88) 0%, rgba(13,27,42,0.30) 55%, transparent 100%);
+    }
+    .dest-card__body {
+      position: relative;
+      z-index: 1;
+      padding: 24px 28px;
+      width: 100%;
+    }
+    .dest-card__badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .dest-card__name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .dest-card__tagline {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .dest-card__highlights {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 16px;
+    }
+    .dest-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.2s ease;
+    }
+    .dest-card:hover .dest-card__link { gap: 10px; }
+
+    /* ── Europe/Americas 4-col grid ── */
+    .grid-4-dest {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 1024px) { .grid-4-dest { grid-template-columns: repeat(4, 1fr); } }
+
+    /* ── Section heading with accent line ── */
+    .dest-section-header {
+      margin-bottom: 40px;
+    }
+    .dest-section-header .eyebrow { margin-bottom: 10px; }
+    .dest-section-header h2 { margin-bottom: 12px; }
+    .dest-section-header p {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.65;
+    }
+    .dest-section-header--light h2 { color: var(--white); }
+    .dest-section-header--light p  { color: var(--text-ghost); }
+
+    /* ── CTA strip between sections ── */
+    .dest-cta-strip {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ── Africa section bg override ── */
+    .section--africa {
+      background: var(--bg-earth);
+      background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&q=30');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav__links" role="list">
+      <li><a href="destinations.html" class="nav__link" aria-current="page">Destinations</a></li>
+      <li><a href="index.html#packages" class="nav__link">Packages</a></li>
+      <li><a href="index.html#activities" class="nav__link">Activities</a></li>
+      <li><a href="visa.html" class="nav__link">Visa</a></li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+         class="btn btn--primary btn--sm"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display:none"
+         id="navBookBtn">
+        Book Now
+      </a>
+      <!-- Hamburger -->
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer overlay -->
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- Mobile drawer -->
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+
+  <nav class="nav__drawer-links">
+    <a href="destinations.html" class="nav__drawer-link" aria-current="page">
+      Destinations <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="index.html#packages" class="nav__drawer-link">
+      Packages <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="index.html#activities" class="nav__drawer-link">
+      Activities <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="visa.html" class="nav__drawer-link">
+      Visa Services <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="index.html#blog" class="nav__drawer-link">
+      Blog <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="about.html" class="nav__drawer-link">
+      About Us <i class="ri-arrow-right-line"></i>
+    </a>
+    <a href="contact.html" class="nav__drawer-link">
+      Contact <i class="ri-arrow-right-line"></i>
+    </a>
+  </nav>
+
+  <div class="nav__drawer-cta">
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="btn btn--primary btn--full"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line"></i> Book Now on WhatsApp
+    </a>
+  </div>
+</aside>
+
+
+<!-- ============================================================
+     HERO — 50vh, aerial Dubai image overlay
+     ============================================================ -->
+<section class="dest-hero" aria-labelledby="dest-hero-heading">
+  <div class="dest-hero__bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80"
+      alt="Aerial view of Dubai skyline and coastline at golden hour"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="dest-hero__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="dest-hero__content">
+      <p class="eyebrow dest-hero__eyebrow">15 Destinations Worldwide</p>
+      <h1 class="dest-hero__headline" id="dest-hero-heading">
+        Where Will BGS<br>
+        <em>Take You?</em>
+      </h1>
+      <p class="dest-hero__sub">
+        From Dubai's desert dunes to African savannahs, Asian temples, and European cities — one company with offices on the ground in every destination we sell.
+      </p>
+      <div class="dest-hero__search" role="search" aria-label="Search destinations">
+        <input
+          class="dest-hero__search-input"
+          type="text"
+          id="destSearch"
+          placeholder="Search a destination..."
+          aria-label="Search destinations"
+        />
+        <button class="dest-hero__search-btn" aria-label="Search" id="destSearchBtn">
+          <i class="ri-search-line"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     UAE & MIDDLE EAST
+     ============================================================ -->
+<section class="section" id="uae" aria-labelledby="uae-heading">
+  <div class="container">
+    <div class="dest-section-header">
+      <p class="eyebrow">UAE Flagship</p>
+      <h2 id="uae-heading">Dubai &amp; The UAE</h2>
+      <p>Our home base and our flagship destination. Three extraordinary Emirates — each with its own personality, landscapes, and experiences.</p>
+    </div>
+
+    <div class="grid-3" role="list" aria-label="UAE destinations">
+
+      <!-- Dubai -->
+      <article class="destination-card" role="listitem">
+        <img class="destination-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=75"
+          alt="Dubai Burj Khalifa and skyline at golden hour" />
+        <div class="destination-card__overlay"></div>
+        <div class="destination-card__body">
+          <span class="destination-card__badge">Flagship</span>
+          <div class="destination-card__name">Dubai</div>
+          <div class="destination-card__tagline">The City of Everything</div>
+          <div style="font-size:0.8125rem;color:rgba(255,255,255,0.55);margin-bottom:14px;">Desert, skyline, sea, luxury, culture. All in one.</div>
+          <a href="destinations/dubai.html" class="destination-card__cta">
+            Explore Packages <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Abu Dhabi -->
+      <article class="destination-card" role="listitem">
+        <img class="destination-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1605726012985-cec278c0b3fe?w=800&q=75"
+          alt="Sheikh Zayed Grand Mosque Abu Dhabi at sunset" />
+        <div class="destination-card__overlay"></div>
+        <div class="destination-card__body">
+          <div class="destination-card__name">Abu Dhabi</div>
+          <div class="destination-card__tagline">Capital of Contrasts</div>
+          <div style="font-size:0.8125rem;color:rgba(255,255,255,0.55);margin-bottom:14px;">Grand Mosque, F1 circuit, Louvre, pristine beaches.</div>
+          <a href="destinations/abu-dhabi.html" class="destination-card__cta">
+            Explore Packages <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Ras Al Khaimah -->
+      <article class="destination-card" role="listitem">
+        <img class="destination-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1578895101408-1a36b732db8b?w=800&q=75"
+          alt="Jebel Jais mountain landscape in Ras Al Khaimah UAE" />
+        <div class="destination-card__overlay"></div>
+        <div class="destination-card__body">
+          <div class="destination-card__name">Ras Al Khaimah</div>
+          <div class="destination-card__tagline">UAE's Adventure Escape</div>
+          <div style="font-size:0.8125rem;color:rgba(255,255,255,0.55);margin-bottom:14px;">Jebel Jais, mountain hikes, thermal baths.</div>
+          <a href="destinations/ras-al-khaimah.html" class="destination-card__cta">
+            Explore Packages <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /UAE grid -->
+
+    <div class="dest-cta-strip">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20UAE%20trip"
+         class="btn btn--primary"
+         target="_blank" rel="noopener noreferrer">
+        <i class="ri-whatsapp-line"></i> Plan My UAE Trip
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EAST AFRICA COLLECTION — dark earth bg with savannah image
+     ============================================================ -->
+<section class="section section--africa" id="east-africa" aria-labelledby="east-africa-heading">
+  <div class="container">
+    <div class="dest-section-header dest-section-header--light">
+      <p class="eyebrow">East Africa Collection</p>
+      <h2 id="east-africa-heading">Seven Countries. Endless Wild.</h2>
+      <p>From the Serengeti plains to mountain gorillas and hidden island beaches — Africa is BGS Travel's heartland. Our own teams on the ground mean your safari runs exactly as planned.</p>
+    </div>
+
+    <div class="grid-3" role="list" aria-label="East Africa destinations">
+
+      <!-- Tanzania -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=700&q=75"
+          alt="Mount Kilimanjaro above clouds with Tanzania savannah in foreground" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Tanzania</div>
+          <div class="africa-card__tagline">The Complete Africa Experience</div>
+          <div class="africa-card__highlights">Serengeti &middot; Kilimanjaro &middot; Zanzibar</div>
+          <div class="africa-card__price">From USD 1,490 / person</div>
+          <a href="destinations/tanzania.html" class="africa-card__link">
+            Explore Tanzania <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Uganda -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1612553949930-a7a3a5da1be2?w=700&q=75"
+          alt="Silverback mountain gorilla in Bwindi Impenetrable Forest Uganda" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Uganda</div>
+          <div class="africa-card__tagline">Pearl of Africa</div>
+          <div class="africa-card__highlights">Gorilla Trekking &middot; Bwindi Forest &middot; Nile Source</div>
+          <div class="africa-card__price">From USD 1,190 / person</div>
+          <a href="destinations/uganda.html" class="africa-card__link">
+            Explore Uganda <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Ethiopia -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=75"
+          alt="Ancient rock-hewn churches of Lalibela Ethiopia" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Ethiopia</div>
+          <div class="africa-card__tagline">Africa's Ancient Kingdom</div>
+          <div class="africa-card__highlights">Lalibela &middot; Simien Mountains &middot; Omo Valley</div>
+          <div class="africa-card__price">From USD 1,090 / person</div>
+          <a href="destinations/ethiopia.html" class="africa-card__link">
+            Explore Ethiopia <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Kenya -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=75"
+          alt="Wildebeest migration at sunset in Masai Mara Kenya" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Kenya</div>
+          <div class="africa-card__tagline">The Great Migration</div>
+          <div class="africa-card__highlights">Masai Mara &middot; Amboseli &middot; Diani Beach</div>
+          <div class="africa-card__price">From USD 1,350 / person</div>
+          <a href="destinations/kenya.html" class="africa-card__link">
+            Explore Kenya <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Zambia -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1628346481668-de4c0de03ea4?w=700&q=75"
+          alt="Victoria Falls with rainbow spray in Zambia" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Zambia</div>
+          <div class="africa-card__tagline">The Real Africa</div>
+          <div class="africa-card__highlights">Victoria Falls &middot; South Luangwa &middot; Kafue</div>
+          <div class="africa-card__price">From USD 1,290 / person</div>
+          <a href="destinations/zambia.html" class="africa-card__link">
+            Explore Zambia <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Malawi -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&q=75"
+          alt="Lake Malawi clear waters at sunset — the warm heart of Africa" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Malawi</div>
+          <div class="africa-card__tagline">The Warm Heart of Africa</div>
+          <div class="africa-card__highlights">Lake Malawi &middot; Liwonde Park &middot; Nyika Plateau</div>
+          <div class="africa-card__price">From USD 990 / person</div>
+          <a href="destinations/malawi.html" class="africa-card__link">
+            Explore Malawi <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Mozambique -->
+      <article class="africa-card" role="listitem">
+        <img class="africa-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=75"
+          alt="Turquoise Indian Ocean waters and white sand beaches in Mozambique" />
+        <div class="africa-card__body">
+          <div class="africa-card__name">Mozambique</div>
+          <div class="africa-card__tagline">Africa's Hidden Coastline</div>
+          <div class="africa-card__highlights">Bazaruto Archipelago &middot; Tofo &middot; Maputo</div>
+          <div class="africa-card__price">From USD 1,150 / person</div>
+          <a href="destinations/mozambique.html" class="africa-card__link">
+            Explore Mozambique <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /east africa grid -->
+
+    <div class="dest-cta-strip">
+      <a href="destinations/africa.html" class="btn btn--outline">
+        View All African Destinations <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SOUTHERN AFRICA — Sand bg
+     ============================================================ -->
+<section class="section section--sand" id="southern-africa" aria-labelledby="southern-africa-heading">
+  <div class="container">
+    <div class="dest-section-header">
+      <p class="eyebrow">Southern Africa</p>
+      <h2 id="southern-africa-heading">Southern Africa</h2>
+      <p>A world in one country — from Big Five safaris and world-class wine to dramatic coastlines and one of the world's most celebrated cities.</p>
+    </div>
+
+    <article class="feature-card" role="article" aria-label="South Africa destination">
+      <img class="feature-card__img" loading="lazy"
+        src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1400&q=75"
+        alt="Table Mountain overlooking Cape Town at sunset with ocean in background" />
+      <div class="feature-card__overlay" aria-hidden="true"></div>
+      <div class="feature-card__body">
+        <span class="feature-card__badge">Popular</span>
+        <div class="feature-card__name">South Africa</div>
+        <div class="feature-card__tagline">A World in One Country</div>
+        <div class="feature-card__highlights">Kruger National Park &middot; Cape Town &middot; Garden Route &middot; Wine Country &middot; Whale Watching</div>
+        <a href="destinations/south-africa.html" class="feature-card__link">
+          Explore South Africa <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SOUTH ASIA — Warm white bg
+     ============================================================ -->
+<section class="section" id="south-asia" aria-labelledby="south-asia-heading">
+  <div class="container">
+    <div class="dest-section-header">
+      <p class="eyebrow">South Asia</p>
+      <h2 id="south-asia-heading">South Asia</h2>
+      <p>Ancient civilisations, extraordinary landscapes, and a cultural richness that no other region on Earth can match.</p>
+    </div>
+
+    <div class="grid-2-dest" role="list" aria-label="South Asia destinations">
+
+      <!-- India -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?w=900&q=75"
+          alt="Taj Mahal at sunrise, Agra, India" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__name">India</div>
+          <div class="dest-card__tagline">Heritage &middot; Spirit &middot; Colour</div>
+          <div class="dest-card__highlights">Rajasthan &middot; Kerala &middot; Goa &middot; Heritage Trails</div>
+          <a href="destinations/india.html" class="dest-card__link">
+            Explore India <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Pakistan -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1565967511849-76a60a516170?w=900&q=75"
+          alt="Hunza Valley with snow-capped peaks in northern Pakistan" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__badge">Emerging</div>
+          <div class="dest-card__name">Pakistan</div>
+          <div class="dest-card__tagline">The World's Best Kept Secret</div>
+          <div class="dest-card__highlights">Hunza Valley &middot; Lahore &middot; Karachi &middot; Northern Areas</div>
+          <a href="destinations/pakistan.html" class="dest-card__link">
+            Explore Pakistan <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /south asia grid -->
+
+    <div class="dest-cta-strip">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20South%20Asia%20trip"
+         class="btn btn--secondary"
+         target="_blank" rel="noopener noreferrer">
+        <i class="ri-whatsapp-line"></i> Plan My Asia Trip
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SOUTHEAST ASIA — Sand bg
+     ============================================================ -->
+<section class="section section--sand" id="southeast-asia" aria-labelledby="southeast-asia-heading">
+  <div class="container">
+    <div class="dest-section-header">
+      <p class="eyebrow">Southeast Asia</p>
+      <h2 id="southeast-asia-heading">Southeast Asia</h2>
+      <p>Bali's sacred temples, Lombok's untouched beaches, and Raja Ampat's world-famous dive sites — Indonesia is a world unto itself.</p>
+    </div>
+
+    <article class="feature-card" role="article" aria-label="Indonesia destination">
+      <img class="feature-card__img" loading="lazy"
+        src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1400&q=75"
+        alt="Bali rice terraces with tropical palm trees and morning mist" />
+      <div class="feature-card__overlay" aria-hidden="true"></div>
+      <div class="feature-card__body">
+        <span class="feature-card__badge">Tropical</span>
+        <div class="feature-card__name">Indonesia</div>
+        <div class="feature-card__tagline">Temples, Beaches &amp; Serenity</div>
+        <div class="feature-card__highlights">Bali &middot; Lombok &middot; Jakarta &middot; Raja Ampat</div>
+        <a href="destinations/indonesia.html" class="feature-card__link">
+          Explore Indonesia <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EUROPE & AMERICAS — White bg
+     ============================================================ -->
+<section class="section section--white" id="europe-americas" aria-labelledby="europe-americas-heading">
+  <div class="container">
+    <div class="dest-section-header">
+      <p class="eyebrow">Europe &amp; The Americas</p>
+      <h2 id="europe-americas-heading">Europe &amp; The Americas</h2>
+      <p>From German Christmas markets and London's landmarks to Moldova's wine valleys and Panama's two-ocean access — BGS Travel covers four continents.</p>
+    </div>
+
+    <div class="grid-4-dest" role="list" aria-label="Europe and Americas destinations">
+
+      <!-- Germany -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=700&q=75"
+          alt="Neuschwanstein Castle in Bavaria Germany surrounded by autumn forest" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__name">Germany</div>
+          <div class="dest-card__tagline">Castles &amp; Culture</div>
+          <div class="dest-card__highlights">Berlin &middot; Bavaria &middot; Rhine Valley</div>
+          <a href="destinations/germany.html" class="dest-card__link">
+            Explore <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- United Kingdom -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=700&q=75"
+          alt="Tower Bridge and Thames River in London United Kingdom at blue hour" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__name">United Kingdom</div>
+          <div class="dest-card__tagline">Icons &amp; Heritage</div>
+          <div class="dest-card__highlights">London &middot; Scotland &middot; Cotswolds</div>
+          <a href="destinations/united-kingdom.html" class="dest-card__link">
+            Explore <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Moldova -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=700&q=75"
+          alt="Rolling vineyard hills at sunset — Moldova wine country" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__badge">Hidden Gem</div>
+          <div class="dest-card__name">Moldova</div>
+          <div class="dest-card__tagline">Europe's Wine Country</div>
+          <div class="dest-card__highlights">Cricova Cellars &middot; Orhei &middot; Chisinau</div>
+          <a href="destinations/moldova.html" class="dest-card__link">
+            Explore <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Panama -->
+      <article class="dest-card" role="listitem">
+        <img class="dest-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1528277342758-f1d7613953a2?w=700&q=75"
+          alt="Panama Canal with cargo ships and tropical rainforest surroundings" />
+        <div class="dest-card__overlay" aria-hidden="true"></div>
+        <div class="dest-card__body">
+          <div class="dest-card__badge">Unique</div>
+          <div class="dest-card__name">Panama</div>
+          <div class="dest-card__tagline">Two Oceans, One Country</div>
+          <div class="dest-card__highlights">The Canal &middot; San Blas Islands &middot; Panama City</div>
+          <a href="destinations/panama.html" class="dest-card__link">
+            Explore <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /europe americas grid -->
+
+    <div class="dest-cta-strip">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20Europe%20or%20Americas%20trip"
+         class="btn btn--secondary"
+         target="_blank" rel="noopener noreferrer">
+        <i class="ri-whatsapp-line"></i> Plan My Trip
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BOTTOM CTA — Navy
+     ============================================================ -->
+<section class="section section--dark" aria-labelledby="dest-bottom-cta-heading">
+  <div class="container text-center">
+    <p class="eyebrow" style="margin-bottom:16px;">Ready to Travel?</p>
+    <h2 id="dest-bottom-cta-heading" style="color:var(--white); max-width:640px; margin:0 auto 16px;">
+      Tell Us Where You Want to Go.<br>We'll Handle Everything Else.
+    </h2>
+    <p style="color:var(--text-ghost); max-width:520px; margin:0 auto 36px; font-size:1.0625rem; line-height:1.7;">
+      WhatsApp our travel specialists right now. We'll build your itinerary, sort your visa, arrange your flights, and have you in your destination without a single headache.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20start%20planning%20a%20trip"
+         class="btn btn--whatsapp btn--lg"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Start planning your trip on WhatsApp">
+        <i class="ri-whatsapp-line"></i> Start Planning Now
+      </a>
+      <a href="contact.html" class="btn btn--outline-white btn--lg">
+        Send an Enquiry <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <!-- Col 1: About -->
+      <div>
+        <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+        <p class="footer__about-text">
+          Dubai's home-grown travel & tourism company, crafting tailor-made trips to 15 destinations worldwide since 2014.
+        </p>
+        <div>
+          <div class="footer__contact-item">
+            <i class="ri-map-pin-line" style="color:var(--gold);margin-top:2px;"></i>
+            <span>Royal Business Center, Bur Dubai, Dubai — UAE</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-phone-line" style="color:var(--gold);"></i>
+            <a href="tel:+971506944909">+971 50 694 4909</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-mail-line" style="color:var(--gold);"></i>
+            <a href="mailto:info@bgstravel.com">info@bgstravel.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-whatsapp-line" style="color:var(--whatsapp);"></i>
+            <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+          </div>
+        </div>
+
+        <div class="footer__social" role="list" aria-label="Social media links">
+          <a href="#" class="footer__social-icon" aria-label="Instagram" role="listitem"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook" role="listitem"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="TikTok" role="listitem"><i class="ri-tiktok-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube" role="listitem"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn" role="listitem"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Destinations -->
+      <div>
+        <h3 class="footer__col-heading">Destinations</h3>
+        <nav class="footer__links" aria-label="Destination links">
+          <a href="destinations/dubai.html" class="footer__link">UAE &amp; Dubai</a>
+          <a href="destinations/tanzania.html" class="footer__link">Tanzania</a>
+          <a href="destinations/south-africa.html" class="footer__link">South Africa</a>
+          <a href="destinations/ethiopia.html" class="footer__link">Ethiopia</a>
+          <a href="destinations/uganda.html" class="footer__link">Uganda</a>
+          <a href="destinations/zambia.html" class="footer__link">Zambia</a>
+          <a href="destinations/malawi.html" class="footer__link">Malawi</a>
+          <a href="destinations/mozambique.html" class="footer__link">Mozambique</a>
+          <a href="destinations/india.html" class="footer__link">India</a>
+          <a href="destinations/pakistan.html" class="footer__link">Pakistan</a>
+          <a href="destinations/indonesia.html" class="footer__link">Indonesia</a>
+          <a href="destinations/germany.html" class="footer__link">Germany</a>
+          <a href="destinations/united-kingdom.html" class="footer__link">United Kingdom</a>
+          <a href="destinations/moldova.html" class="footer__link">Moldova</a>
+          <a href="destinations/panama.html" class="footer__link">Panama</a>
+        </nav>
+      </div>
+
+      <!-- Col 3: Quick Links -->
+      <div>
+        <h3 class="footer__col-heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Quick links">
+          <a href="packages.html" class="footer__link">All Packages</a>
+          <a href="activities.html" class="footer__link">Activities</a>
+          <a href="visa.html" class="footer__link">Visa Services</a>
+          <a href="hotels.html" class="footer__link">Hotels</a>
+          <a href="transport.html" class="footer__link">Transport</a>
+          <a href="blog.html" class="footer__link">Blog &amp; Travel Guides</a>
+          <a href="gallery.html" class="footer__link">Gallery</a>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="contact.html" class="footer__link">Contact Us</a>
+          <a href="privacy.html" class="footer__link" style="margin-top:8px;">Privacy Policy</a>
+          <a href="terms.html" class="footer__link">Terms &amp; Conditions</a>
+          <a href="sitemap.html" class="footer__link">Sitemap</a>
+        </nav>
+      </div>
+
+      <!-- Col 4: Newsletter -->
+      <div>
+        <h3 class="footer__col-heading">Stay Inspired</h3>
+        <p class="footer__newsletter-text">
+          Get weekly travel deals, destination guides, and insider tips delivered straight to your inbox.
+        </p>
+        <form class="footer__newsletter-form" novalidate aria-label="Newsletter signup">
+          <input class="footer__newsletter-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+        </form>
+        <p class="footer__license">Dubai Tourism Licence: [LICENCE NO]</p>
+      </div>
+
+    </div><!-- /footer grid -->
+
+    <div class="footer__bottom">
+      <span>&copy; 2026 BGS Travel and Tourism LLC. All Rights Reserved.</span>
+      <span>&middot; Dubai, UAE &middot;</span>
+      <span>Designed with care for every traveller.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     STICKY MOBILE BOTTOM BAR
+     ============================================================ -->
+<div class="sticky-bar" role="navigation" aria-label="Mobile quick actions">
+  <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20book%20a%20trip"
+     class="sticky-bar__btn sticky-bar__btn--wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <i class="ri-whatsapp-line"></i> WhatsApp Us
+  </a>
+  <a href="contact.html" class="sticky-bar__btn sticky-bar__btn--plan" aria-label="Plan my trip">
+    <i class="ri-map-2-line"></i> Plan My Trip
+  </a>
+</div>
+
+<script>
+  /* ── Nav scroll behaviour ── */
+  const nav    = document.getElementById('mainNav');
+  const navBtn = document.getElementById('navBookBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+      if (navBtn) navBtn.style.display = 'inline-flex';
+    } else {
+      nav.classList.remove('scrolled');
+      if (navBtn) navBtn.style.display = 'none';
+    }
+  }, { passive: true });
+
+  /* ── Mobile drawer ── */
+  const hamburger = document.getElementById('hamburgerBtn');
+  const drawer    = document.getElementById('navDrawer');
+  const overlay   = document.getElementById('navOverlay');
+  const closeBtn  = document.getElementById('drawerClose');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.style.display = 'block';
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.style.display = 'none';
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  /* ── Destination search (client-side filter) ── */
+  const searchInput = document.getElementById('destSearch');
+  const searchBtn   = document.getElementById('destSearchBtn');
+
+  function runSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    if (!query) return;
+
+    /* Map common search terms to section IDs */
+    const sectionMap = {
+      dubai:        'uae',
+      uae:          'uae',
+      'abu dhabi':  'uae',
+      'ras al':     'uae',
+      tanzania:     'east-africa',
+      uganda:       'east-africa',
+      ethiopia:     'east-africa',
+      kenya:        'east-africa',
+      zambia:       'east-africa',
+      malawi:       'east-africa',
+      mozambique:   'east-africa',
+      africa:       'east-africa',
+      'south africa': 'southern-africa',
+      kruger:       'southern-africa',
+      'cape town':  'southern-africa',
+      india:        'south-asia',
+      pakistan:     'south-asia',
+      asia:         'south-asia',
+      indonesia:    'southeast-asia',
+      bali:         'southeast-asia',
+      germany:      'europe-americas',
+      uk:           'europe-americas',
+      'united kingdom': 'europe-americas',
+      london:       'europe-americas',
+      moldova:      'europe-americas',
+      panama:       'europe-americas',
+      europe:       'europe-americas',
+    };
+
+    let targetId = null;
+    for (const [key, id] of Object.entries(sectionMap)) {
+      if (query.includes(key)) { targetId = id; break; }
+    }
+
+    if (targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.querySelector('h2').focus({ preventScroll: true });
+      }
+    } else {
+      /* Fallback — just smooth scroll down to first section */
+      document.getElementById('uae').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  searchBtn.addEventListener('click', runSearch);
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+</script>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+</body>
+</html>

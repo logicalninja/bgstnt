@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "project_type": "greenfield",
+  "current_section": "complete",
+  "current_question": 0,
+  "completed_sections": ["product", "guidelines", "tech_stack", "workflow", "styleguides"],
+  "answers": {
+    "project_name": "BGS Travel and Tourism",
+    "description": "Dubai-first travel and tourism website offering packages, tours, trips, and excursions across UAE and 14 global destinations",
+    "problem_statement": "Travellers need a trusted, locally-rooted Dubai travel company that can handle everything from desert safaris to African safaris and beyond",
+    "target_users": "UAE residents, tourists visiting Dubai, and international travellers seeking premium guided experiences",
+    "voice_tone": "Warm, expert, and inspiring — like a trusted local friend who knows every destination",
+    "design_principles": "Dubai-first, mobile-first, conversion-optimised, content-managed by non-technical team",
+    "cms": "WordPress + WP Travel Engine",
+    "primary_language": "HTML, CSS, JavaScript / PHP (WordPress)",
+    "frontend": "WordPress with custom theme (Elementor Pro for page building)",
+    "backend": "WordPress + WP Travel Engine",
+    "database": "MySQL (via WordPress)",
+    "infrastructure": "Self-hosted VPS or managed WordPress hosting (Cloudways / Kinsta)",
+    "tdd": "Flexible",
+    "commit_strategy": "Conventional Commits",
+    "code_review": "Required for non-trivial changes",
+    "verification": "After each phase completion"
+  },
+  "files_created": [
+    "conductor/index.md",
+    "conductor/product.md",
+    "conductor/product-guidelines.md",
+    "conductor/tech-stack.md",
+    "conductor/workflow.md",
+    "conductor/tracks.md"
+  ],
+  "started_at": "2026-03-26T00:00:00Z",
+  "last_updated": "2026-03-26T00:00:00Z"
+}

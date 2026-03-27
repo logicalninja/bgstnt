@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About BGS Travel &amp; Tourism | Born in Dubai. Built for the World.</title>
+  <meta name="description" content="BGS Travel &amp; Tourism — Dubai-licensed travel company with offices in 15 countries. Real specialists, real offices, real results. Meet the team behind your trip." />
+  <meta property="og:title" content="About BGS Travel &amp; Tourism" />
+  <meta property="og:description" content="Founded in Dubai. Operating in 15 countries. 10,000+ travellers served. Here's our story." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+    /* ── Story section ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .story-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .story-img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+
+    /* ── Values grid ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 600px) { .values-grid { grid-template-columns: 1fr; } }
+
+    .value-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid var(--border-sand, #E5E0D8);
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(13,27,42,0.1); }
+    .value-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(201,151,44,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+      color: var(--gold, #C9972C);
+    }
+    .value-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin: 0 0 10px;
+    }
+    .value-card__body {
+      font-size: 0.9375rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Team cards ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } }
+
+    .team-card {
+      text-align: center;
+      background: var(--bg, #FAF7F2);
+      border-radius: 16px;
+      padding: 36px 24px 28px;
+      border: 1px solid var(--border-sand, #E5E0D8);
+    }
+    .team-card__avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--sand, #F0EDE8);
+      border: 3px solid var(--border-sand, #E5E0D8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 2.5rem;
+      color: var(--text-muted, #9ca3af);
+      overflow: hidden;
+    }
+    .team-card__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-card__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin: 0 0 4px;
+    }
+    .team-card__role {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--gold, #C9972C);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 12px;
+    }
+    .team-card__bio {
+      font-size: 0.875rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Offices grid ── */
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1024px) { .offices-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 720px)  { .offices-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px)  { .offices-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .office-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .office-item:hover { background: rgba(255,255,255,0.1); }
+    .office-item__flag { font-size: 2rem; margin-bottom: 8px; display: block; }
+    .office-item__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .office-item__badge {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(34,197,94,0.2);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 100px;
+      padding: 2px 8px;
+    }
+    .office-item--hq .office-item__badge {
+      background: rgba(201,151,44,0.2);
+      color: var(--gold-light, #E8B84B);
+      border-color: rgba(201,151,44,0.35);
+    }
+
+    /* ── Stats bar ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    @media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+
+    .stat-item__number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      color: var(--navy, #0D1B2A);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-item__label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted, #6b7280);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── About CTA strip ── */
+    .about-cta {
+      background: #0D1B2A;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .about-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: #fff;
+      margin: 0 0 16px;
+    }
+    .about-cta p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.0625rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .about-cta__btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html#destinations" class="nav__link">Destinations</a></li>
+      <li><a href="packages.html" class="nav__link">Packages</a></li>
+      <li><a href="activities.html" class="nav__link">Activities</a></li>
+      <li><a href="visa.html" class="nav__link">Visa</a></li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+         class="btn btn--primary btn--sm"
+         target="_blank" rel="noopener noreferrer"
+         style="display:none" id="navBookBtn">
+        Book Now
+      </a>
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="nav__drawer-links">
+    <a href="index.html#destinations" class="nav__drawer-link">Destinations <i class="ri-arrow-right-line"></i></a>
+    <a href="packages.html" class="nav__drawer-link">Packages <i class="ri-arrow-right-line"></i></a>
+    <a href="activities.html" class="nav__drawer-link">Activities <i class="ri-arrow-right-line"></i></a>
+    <a href="visa.html" class="nav__drawer-link">Visa Services <i class="ri-arrow-right-line"></i></a>
+    <a href="index.html#blog" class="nav__drawer-link">Blog <i class="ri-arrow-right-line"></i></a>
+    <a href="about.html" class="nav__drawer-link">About Us <i class="ri-arrow-right-line"></i></a>
+    <a href="contact.html" class="nav__drawer-link">Contact <i class="ri-arrow-right-line"></i></a>
+  </nav>
+  <div class="nav__drawer-cta">
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="btn btn--primary btn--full"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line"></i> Book Now on WhatsApp
+    </a>
+  </div>
+</aside>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero hero--short" aria-label="About hero" style="min-height:50vh;">
+  <div class="hero__bg" aria-hidden="true">
+    <img
+      class="hero__img"
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80"
+      alt="BGS Travel team working together in a Dubai office"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content" style="max-width:720px;">
+    <p class="eyebrow hero__eyebrow">OUR STORY</p>
+    <h1 class="hero__headline" style="font-size:clamp(2.2rem,5vw,3.75rem);">Born in Dubai.<br><em>Built for the World.</em></h1>
+    <p class="hero__sub" style="max-width:600px;">
+      BGS Travel &amp; Tourism started with one belief — travel should be effortless, personal, and unforgettable. Ten years later, we have offices in 15 countries and have helped over 10,000 travellers see the world.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHO WE ARE
+     ============================================================ -->
+<section class="section" aria-labelledby="who-heading" style="background:var(--bg,#FAF7F2);">
+  <div class="container">
+    <div class="story-grid">
+
+      <!-- Text left -->
+      <div>
+        <div class="section-header">
+          <p class="eyebrow">Our Background</p>
+          <h2 id="who-heading">Who We Are</h2>
+        </div>
+        <p style="font-size:1rem;line-height:1.8;color:var(--text-secondary,#374151);margin-bottom:20px;">
+          BGS Travel &amp; Tourism LLC is headquartered in Dubai, UAE — and licensed by the Dubai Department of Economy and Tourism. We're not an aggregator, a comparison site, or a booking engine. We're a team of real travel specialists with real offices in every destination we sell.
+        </p>
+        <p style="font-size:1rem;line-height:1.8;color:var(--text-secondary,#374151);margin-bottom:20px;">
+          From our main office in Bur Dubai, we coordinate trips to 15 destinations across Africa, Asia, Europe, and the Americas. In each location, we have our own staff — guides, drivers, accommodation partners — not third-party agents we hand you off to.
+        </p>
+        <p style="font-size:1rem;line-height:1.8;color:var(--text-secondary,#374151);margin-bottom:0;">
+          That means when you're on safari in Tanzania, there's a BGS team member on the ground. When your visa for Uganda needs chasing, we're calling Kampala directly. When your family lands in Bali, someone who works for us is waiting.
+        </p>
+      </div>
+
+      <!-- Image right -->
+      <div>
+        <img
+          class="story-img"
+          loading="lazy"
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80"
+          alt="BGS Travel Dubai office — team planning travel itineraries"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VALUES
+     ============================================================ -->
+<section class="section section--sand" aria-labelledby="values-heading">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow">Our Principles</p>
+      <h2 id="values-heading">What We Stand For</h2>
+      <p>Four commitments we make to every traveller, every trip.</p>
+    </div>
+
+    <div class="values-grid">
+
+      <div class="value-card">
+        <div class="value-card__icon" aria-hidden="true"><i class="ri-map-pin-2-line"></i></div>
+        <h3 class="value-card__title">Local Knowledge</h3>
+        <p class="value-card__body">We've lived, worked, and travelled in every destination we sell. That's not a marketing line. It's what makes our itineraries better.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__icon" aria-hidden="true"><i class="ri-heart-line"></i></div>
+        <h3 class="value-card__title">Real Relationships</h3>
+        <p class="value-card__body">Our clients come back. Over 60% of our bookings are from repeat travellers or referrals. We earn that by doing what we say.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__icon" aria-hidden="true"><i class="ri-customer-service-2-line"></i></div>
+        <h3 class="value-card__title">End-to-End Care</h3>
+        <p class="value-card__body">We don't stop at the booking. Our team is available on WhatsApp before, during, and after every trip. 24/7. No exceptions.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-card__icon" aria-hidden="true"><i class="ri-shield-check-line"></i></div>
+        <h3 class="value-card__title">Honest Advice</h3>
+        <p class="value-card__body">If a destination isn't right for your travel style or budget, we'll tell you. We'd rather build trust than close a sale.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TEAM
+     ============================================================ -->
+<section class="section" aria-labelledby="team-heading" style="background:#fff;">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow">THE TEAM</p>
+      <h2 id="team-heading">The People Behind Your Trip</h2>
+      <p>Real specialists. Every booking handled by a human who genuinely knows the destination.</p>
+    </div>
+
+    <!-- Placeholder note -->
+    <div style="background:rgba(201,151,44,0.08);border:1px dashed rgba(201,151,44,0.4);border-radius:12px;padding:16px 20px;margin-bottom:36px;text-align:center;">
+      <p style="margin:0;font-size:0.875rem;color:var(--gold,#C9972C);font-weight:600;">
+        <i class="ri-information-line"></i> &nbsp;[PLACEHOLDER — add real team photos and bios here]
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-card__avatar" aria-label="Team member photo placeholder">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="team-card__name">Mohammed Al-Rashid</div>
+        <div class="team-card__role">Founder &amp; CEO</div>
+        <p class="team-card__bio">Founded BGS Travel in 2014 after 12 years in Dubai's hospitality industry. Mohammed oversees all destination partnerships and quality standards across the network.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__avatar" aria-label="Team member photo placeholder">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="team-card__name">Sarah Williams</div>
+        <div class="team-card__role">Head of Africa Packages</div>
+        <p class="team-card__bio">Spent three years living in Tanzania before joining BGS. Sarah personally designs every African safari itinerary and maintains our ground team relationships across seven countries.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__avatar" aria-label="Team member photo placeholder">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="team-card__name">Priya Sharma</div>
+        <div class="team-card__role">Asia &amp; Dubai Specialist</div>
+        <p class="team-card__bio">Born in India, raised in Dubai. Priya leads all Dubai and Asia experiences, from desert safaris to Rajasthan heritage tours, with a reputation for extraordinary attention to detail.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OFFICES
+     ============================================================ -->
+<section class="section" aria-labelledby="offices-heading" style="background:#0D1B2A;">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow" style="color:var(--gold,#C9972C);">OUR OFFICES</p>
+      <h2 id="offices-heading" style="color:#fff;">15 Destinations. Our Own Teams.</h2>
+      <p style="color:rgba(255,255,255,0.65);">We don't outsource. In every location below, we have our own staff on the ground.</p>
+    </div>
+
+    <div class="offices-grid">
+
+      <div class="office-item office-item--hq">
+        <span class="office-item__flag" aria-hidden="true">🇦🇪</span>
+        <div class="office-item__name">Dubai, UAE</div>
+        <span class="office-item__badge">Headquarters</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇹🇿</span>
+        <div class="office-item__name">Tanzania</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇿🇦</span>
+        <div class="office-item__name">South Africa</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇪🇹</span>
+        <div class="office-item__name">Ethiopia</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇺🇬</span>
+        <div class="office-item__name">Uganda</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇿🇲</span>
+        <div class="office-item__name">Zambia</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇲🇼</span>
+        <div class="office-item__name">Malawi</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇲🇿</span>
+        <div class="office-item__name">Mozambique</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇮🇳</span>
+        <div class="office-item__name">India</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇵🇰</span>
+        <div class="office-item__name">Pakistan</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇮🇩</span>
+        <div class="office-item__name">Indonesia</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇲🇩</span>
+        <div class="office-item__name">Moldova</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇵🇦</span>
+        <div class="office-item__name">Panama</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇩🇪</span>
+        <div class="office-item__name">Germany</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+      <div class="office-item">
+        <span class="office-item__flag" aria-hidden="true">🇬🇧</span>
+        <div class="office-item__name">United Kingdom</div>
+        <span class="office-item__badge">Office Present</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     NUMBERS
+     ============================================================ -->
+<section class="section section--sand" aria-labelledby="numbers-heading">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:56px;">
+      <p class="eyebrow">By the Numbers</p>
+      <h2 id="numbers-heading">A Decade of Extraordinary Travel</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-item__number">10,000+</div>
+        <div class="stat-item__label">Travellers Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">15</div>
+        <div class="stat-item__label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">10+</div>
+        <div class="stat-item__label">Years in Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__number">4.9&#9733;</div>
+        <div class="stat-item__label">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<div class="about-cta" role="region" aria-label="Start planning CTA">
+  <div class="container">
+    <h2>Ready to Start Planning?</h2>
+    <p>Tell us where you want to go. We'll handle everything from there — visas, flights, accommodation, activities, and transfers.</p>
+    <div class="about-cta__btns">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20start%20planning%20a%20trip"
+         class="btn btn--primary btn--lg"
+         target="_blank" rel="noopener noreferrer">
+        <i class="ri-whatsapp-line"></i> WhatsApp Us
+      </a>
+      <a href="contact.html" class="btn btn--lg" style="background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#fff;">
+        <i class="ri-mail-send-line"></i> Contact Us
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+        <p class="footer__about-text">
+          Dubai's home-grown travel & tourism company, crafting tailor-made trips to 15 destinations worldwide since 2014.
+        </p>
+        <div>
+          <div class="footer__contact-item">
+            <i class="ri-map-pin-line" style="color:var(--gold);margin-top:2px;"></i>
+            <span>DAMAS Tower, Office 205, 2nd Al Maktoum Rd, Bur Dubai, Dubai — UAE</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-phone-line" style="color:var(--gold);"></i>
+            <a href="tel:+971561348248">+971 56 134 8248</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-mail-line" style="color:var(--gold);"></i>
+            <a href="mailto:info@bgstravelandtourism.com">info@bgstravelandtourism.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-whatsapp-line" style="color:var(--whatsapp);"></i>
+            <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+          </div>
+        </div>
+        <div class="footer__social" role="list" aria-label="Social media links">
+          <a href="#" class="footer__social-icon" aria-label="Instagram" role="listitem"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook" role="listitem"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="TikTok" role="listitem"><i class="ri-tiktok-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube" role="listitem"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn" role="listitem"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Destinations</h3>
+        <nav class="footer__links" aria-label="Destination links">
+          <a href="destinations/dubai.html" class="footer__link">UAE &amp; Dubai</a>
+          <a href="destinations/tanzania.html" class="footer__link">Tanzania</a>
+          <a href="destinations/south-africa.html" class="footer__link">South Africa</a>
+          <a href="destinations/ethiopia.html" class="footer__link">Ethiopia</a>
+          <a href="destinations/uganda.html" class="footer__link">Uganda</a>
+          <a href="destinations/zambia.html" class="footer__link">Zambia</a>
+          <a href="destinations/malawi.html" class="footer__link">Malawi</a>
+          <a href="destinations/mozambique.html" class="footer__link">Mozambique</a>
+          <a href="destinations/india.html" class="footer__link">India</a>
+          <a href="destinations/pakistan.html" class="footer__link">Pakistan</a>
+          <a href="destinations/indonesia.html" class="footer__link">Indonesia</a>
+          <a href="destinations/germany.html" class="footer__link">Germany</a>
+          <a href="destinations/united-kingdom.html" class="footer__link">United Kingdom</a>
+          <a href="destinations/moldova.html" class="footer__link">Moldova</a>
+          <a href="destinations/panama.html" class="footer__link">Panama</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Quick links">
+          <a href="packages.html" class="footer__link">All Packages</a>
+          <a href="activities.html" class="footer__link">Activities</a>
+          <a href="visa.html" class="footer__link">Visa Services</a>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="contact.html" class="footer__link">Contact Us</a>
+          <a href="blog.html" class="footer__link">Blog &amp; Travel Guides</a>
+          <a href="privacy.html" class="footer__link" style="margin-top:8px;">Privacy Policy</a>
+          <a href="terms.html" class="footer__link">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Stay Inspired</h3>
+        <p class="footer__newsletter-text">
+          Get weekly travel deals, destination guides, and insider tips delivered straight to your inbox.
+        </p>
+        <form class="footer__newsletter-form" novalidate aria-label="Newsletter signup">
+          <input class="footer__newsletter-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+        </form>
+        <p class="footer__license">Dubai Tourism Licence: [LICENCE NO]</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 BGS Travel and Tourism LLC. All Rights Reserved.</span>
+      <span>&middot; Dubai, UAE &middot;</span>
+      <span>Designed with care for every traveller.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     STICKY MOBILE BOTTOM BAR
+     ============================================================ -->
+<div class="sticky-bar" role="navigation" aria-label="Mobile quick actions">
+  <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20book%20a%20trip"
+     class="sticky-bar__btn sticky-bar__btn--wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <i class="ri-whatsapp-line"></i> WhatsApp Us
+  </a>
+  <a href="contact.html" class="sticky-bar__btn sticky-bar__btn--plan" aria-label="Plan my trip">
+    <i class="ri-map-2-line"></i> Plan My Trip
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+</body>
+</html>

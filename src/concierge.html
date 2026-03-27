@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concierge Services | BGS Travel &amp; Tourism — VIP &amp; Lifestyle Services Dubai</title>
+  <meta name="description" content="VIP airport meet &amp; greet, restaurant reservations, private chefs, event tickets, yacht charter and more. BGS Concierge handles every detail of your Dubai experience." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    .service-hero{position:relative;min-height:55vh;display:flex;align-items:center;background:var(--navy);overflow:hidden;padding-top:calc(72px + var(--bar-offset,44px));}
+    .service-hero__bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=60') center/cover no-repeat;opacity:.25;}
+    .service-hero__content{position:relative;z-index:1;max-width:720px;padding:60px 0;}
+    .service-hero__content .eyebrow{color:var(--gold);}
+    .service-hero h1{font-size:clamp(2rem,5vw,3.25rem);color:var(--white);margin:12px 0 20px;line-height:1.15;}
+    .service-hero p{font-size:1.0625rem;color:rgba(255,255,255,.8);line-height:1.7;max-width:560px;margin-bottom:32px;}
+    .concierge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:40px;}
+    .concierge-card{background:var(--white);border-radius:var(--radius-card);padding:28px 24px;box-shadow:var(--shadow-sm);text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;transition:transform .2s,box-shadow .2s;}
+    .concierge-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .concierge-card__icon{width:60px;height:60px;background:rgba(201,151,44,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;color:var(--gold);}
+    .concierge-card__title{font-family:var(--font-display);font-size:1.125rem;font-weight:600;color:var(--navy);}
+    .concierge-card__desc{font-size:0.875rem;color:var(--text-muted);line-height:1.65;}
+    .concierge-card__price{font-size:0.8125rem;font-weight:600;color:var(--gold);}
+  </style>
+</head>
+<body>
+
+<div class="announcement-bar" id="announcementBar">
+  <div class="announcement-bar__inner">
+    <span class="announcement-bar__icon">👑</span>
+    <span class="announcement-bar__text"><strong>Dubai Special:</strong> Save up to AED 200 on Desert Safaris &amp; City Tours this season. <a href="index.html#packages" class="announcement-bar__link">See Deals →</a></span>
+    <button class="announcement-bar__close" id="announcementClose" aria-label="Dismiss">✕</button>
+  </div>
+</div>
+
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel &amp; Tourism</span></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="destinations.html" class="nav__link">Destinations</a></li>
+      <li><a href="index.html#packages" class="nav__link">Packages</a></li>
+      <li><a href="activities.html" class="nav__link">Activities</a></li>
+      <li class="nav__dropdown-wrap">
+        <button class="nav__link nav__link--dropdown" aria-expanded="false" aria-haspopup="true" id="servicesDropBtn">Services <i class="ri-arrow-down-s-line nav__dropdown-arrow"></i></button>
+        <ul class="nav__dropdown" role="menu" aria-labelledby="servicesDropBtn">
+          <li role="none"><a href="visa.html"       class="nav__dropdown-item" role="menuitem"><i class="ri-passport-line"></i>       Visa Services</a></li>
+          <li role="none"><a href="flights.html"    class="nav__dropdown-item" role="menuitem"><i class="ri-flight-takeoff-line"></i> Flights</a></li>
+          <li role="none"><a href="hotels.html"     class="nav__dropdown-item" role="menuitem"><i class="ri-hotel-line"></i>          Hotels &amp; Stays</a></li>
+          <li role="none"><a href="transport.html"  class="nav__dropdown-item" role="menuitem"><i class="ri-car-line"></i>            Transport &amp; Fleet</a></li>
+          <li role="none"><a href="concierge.html"  class="nav__dropdown-item nav__dropdown-item--active" role="menuitem"><i class="ri-vip-crown-line"></i> Concierge</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" style="display:none" id="navBookBtn">Book Now</a>
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo"><img src="assets/images/BGS Logo white and black_1.png" alt="BGS" class="nav__logo-img" /><span class="nav__logo-text">BGS <span>Travel &amp; Tourism</span></span></div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close">&#x2715;</button>
+  </div>
+  <nav class="nav__drawer-links">
+    <a href="destinations.html" class="nav__drawer-link"><i class="ri-map-pin-line"></i> Destinations</a>
+    <a href="index.html#packages" class="nav__drawer-link"><i class="ri-suitcase-line"></i> Packages</a>
+    <a href="activities.html" class="nav__drawer-link"><i class="ri-riding-line"></i> Activities</a>
+    <button class="nav__drawer-link nav__drawer-accordion" id="drawerServicesBtn" aria-expanded="false"><span><i class="ri-service-line"></i> Services</span><i class="ri-arrow-down-s-line nav__drawer-accordion-arrow"></i></button>
+    <div class="nav__drawer-subnav" id="drawerServicesNav" aria-hidden="true">
+      <a href="visa.html"       class="nav__drawer-sublink"><i class="ri-passport-line"></i>       Visa Services</a>
+      <a href="flights.html"    class="nav__drawer-sublink"><i class="ri-flight-takeoff-line"></i> Flights</a>
+      <a href="hotels.html"     class="nav__drawer-sublink"><i class="ri-hotel-line"></i>          Hotels &amp; Stays</a>
+      <a href="transport.html"  class="nav__drawer-sublink"><i class="ri-car-line"></i>            Transport &amp; Fleet</a>
+      <a href="concierge.html"  class="nav__drawer-sublink nav__drawer-sublink--active"><i class="ri-vip-crown-line"></i> Concierge</a>
+    </div>
+    <a href="index.html#blog" class="nav__drawer-link"><i class="ri-article-line"></i> Blog</a>
+    <a href="about.html" class="nav__drawer-link"><i class="ri-team-line"></i> About Us</a>
+    <a href="contact.html" class="nav__drawer-link"><i class="ri-phone-line"></i> Contact</a>
+  </nav>
+  <div class="nav__drawer-cta"><a href="https://wa.me/971506944909" class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line"></i> Book on WhatsApp</a></div>
+</aside>
+
+<section class="service-hero">
+  <div class="service-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="service-hero__content">
+      <p class="eyebrow">BGS Concierge</p>
+      <h1>Every Detail.<br><em style="color:var(--gold)">Handled for You.</em></h1>
+      <p>From VIP airport arrivals to private dining reservations and yacht charters — our concierge team is available 24/7 to make your experience seamless.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20to%20enquire%20about%20concierge%20services" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line"></i> Request Concierge</a>
+        <a href="#concierge-services" class="btn btn--outline-white btn--lg">View Services <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="concierge-services">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <p class="eyebrow">What We Handle</p>
+      <h2>Your Personal Dubai Concierge</h2>
+      <p>No request too big. No detail too small.</p>
+    </div>
+    <div class="concierge-grid">
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-flight-land-line"></i></div><div class="concierge-card__title">VIP Airport Meet &amp; Greet</div><div class="concierge-card__desc">Fast-track immigration, dedicated greeter, luggage handling and private transfer to your hotel.</div><div class="concierge-card__price">from AED 350</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20to%20book%20VIP%20airport%20meet%20and%20greet" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Book Now</a></div>
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-restaurant-line"></i></div><div class="concierge-card__title">Restaurant Reservations</div><div class="concierge-card__desc">Tables at Dubai's most sought-after restaurants — Nobu, Nusr-Et, Zuma and more — secured for you.</div><div class="concierge-card__price">Complimentary</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20a%20restaurant%20reservation%20in%20Dubai" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Request Now</a></div>
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-ship-line"></i></div><div class="concierge-card__title">Private Yacht Charter</div><div class="concierge-card__desc">2–8 hour private yacht experiences in Dubai Marina with catering, crew and custom itinerary.</div><div class="concierge-card__price">from AED 1,800 / 2hrs</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20to%20charter%20a%20yacht" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Book Now</a></div>
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-ticket-2-line"></i></div><div class="concierge-card__title">Event &amp; Show Tickets</div><div class="concierge-card__desc">Dubai Opera, Global Village, Formula E, UFC and all major Dubai events — tickets sourced and delivered.</div><div class="concierge-card__price">Price on request</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20to%20book%20event%20tickets%20in%20Dubai" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Request Now</a></div>
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-user-heart-line"></i></div><div class="concierge-card__title">Personal Shopping Assistant</div><div class="concierge-card__desc">Dubai Mall, Mall of the Emirates and Gold Souk — a personal stylist accompanies you or shops on your behalf.</div><div class="concierge-card__price">from AED 500 / half day</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20a%20personal%20shopping%20assistant%20in%20Dubai" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Book Now</a></div>
+      <div class="concierge-card"><div class="concierge-card__icon"><i class="ri-spa-line"></i></div><div class="concierge-card__title">Spa &amp; Wellness</div><div class="concierge-card__desc">In-room spa treatments, hammam experiences and wellness bookings at Dubai's top five-star properties.</div><div class="concierge-card__price">from AED 400</div><a href="https://wa.me/971506944909?text=Hi%20BGS%2C%20I%27d%20like%20to%20book%20a%20spa%20experience%20in%20Dubai" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Book Now</a></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:linear-gradient(135deg,#0D1B2A 0%,#1a2f45 100%);padding:80px 0;text-align:center;">
+  <div class="container">
+    <div style="font-size:2.5rem;color:var(--gold);margin-bottom:16px;">👑</div>
+    <h2 style="color:var(--white);margin-bottom:16px;">Available 24 / 7</h2>
+    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 32px;line-height:1.7;">Our concierge team is on WhatsApp around the clock. Send us your request — no matter how big or small — and we'll handle it.</p>
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Concierge%2C%20I%27d%20like%20to%20make%20a%20request" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line"></i> Contact Concierge Now</a>
+  </div>
+</section>
+
+<footer style="background:var(--dark-footer,#080F18);padding:40px 0;text-align:center;">
+  <div class="container">
+    <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" style="height:48px;margin-bottom:16px;" />
+    <p style="color:rgba(255,255,255,.45);font-size:0.8125rem;">© 2026 BGS Travel &amp; Tourism LLC. Dubai Tourism Licensed.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/971506944909" class="wa-fab" id="waFab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="ri-whatsapp-line wa-fab__icon"></i><span class="wa-fab__label">Chat Now</span><span class="wa-fab__pulse"></span></a>
+<script src="js/main.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(u){if(!u){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}</script>
+</body>
+</html>

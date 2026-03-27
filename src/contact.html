@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact BGS Travel &amp; Tourism | Get a Free Quote Today</title>
+  <meta name="description" content="Get in touch with BGS Travel. Call, WhatsApp, or fill in our form. We respond within 2 hours. Office in Bur Dubai. Free trip planning and quotes." />
+  <meta property="og:title" content="Contact BGS Travel &amp; Tourism" />
+  <meta property="og:description" content="A real travel specialist will reply within 2 hours. WhatsApp, call, or visit us in Bur Dubai." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+    /* ── Two-col contact layout ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: start;
+    }
+    @media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    /* ── Form styles ── */
+    .contact-form__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin: 0 0 8px;
+    }
+    .contact-form__sub {
+      font-size: 0.9375rem;
+      color: var(--text-muted, #6b7280);
+      margin: 0 0 32px;
+      line-height: 1.6;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .form-label span {
+      color: #e53e3e;
+      margin-left: 2px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border-sand, #E5E0D8);
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--navy, #0D1B2A);
+      background: #fff;
+      transition: border-color 0.18s, box-shadow 0.18s;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230D1B2A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold, #C9972C);
+      box-shadow: 0 0 0 3px rgba(201,151,44,0.15);
+    }
+    .form-input.error,
+    .form-select.error,
+    .form-textarea.error {
+      border-color: #e53e3e;
+      box-shadow: 0 0 0 3px rgba(229,62,62,0.12);
+    }
+    .form-error-msg {
+      display: none;
+      font-size: 0.75rem;
+      color: #e53e3e;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .form-error-msg.visible { display: block; }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold, #C9972C);
+      color: #0D1B2A;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s;
+      letter-spacing: 0.02em;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--gold-light, #E8B84B); transform: translateY(-1px); }
+    .form-submit:active { transform: translateY(0); }
+    .form-note {
+      font-size: 0.8125rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.6;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .form-success {
+      display: none;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .form-success.visible { display: block; }
+    .form-success p { margin: 0; font-size: 0.9375rem; color: #166534; font-weight: 600; }
+
+    /* ── Contact sidebar ── */
+    .contact-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .contact-detail-card {
+      background: var(--sand, #F0EDE8);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin-bottom: 20px;
+    }
+    .contact-detail-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin: 0 0 20px;
+    }
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .contact-detail-item:last-child { margin-bottom: 0; }
+    .contact-detail-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .contact-detail-icon--gold { background: rgba(201,151,44,0.15); color: var(--gold, #C9972C); }
+    .contact-detail-icon--wa   { background: rgba(37,211,102,0.15); color: #25D366; }
+    .contact-detail-icon--phone { background: rgba(13,27,42,0.08); color: var(--navy, #0D1B2A); }
+    .contact-detail-icon--email { background: rgba(13,27,42,0.08); color: var(--navy, #0D1B2A); }
+    .contact-detail-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted, #9ca3af);
+      margin-bottom: 2px;
+    }
+    .contact-detail-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      line-height: 1.4;
+    }
+    .contact-detail-value a {
+      color: var(--navy, #0D1B2A);
+      text-decoration: none;
+    }
+    .contact-detail-value a:hover { color: var(--gold, #C9972C); }
+    .contact-detail-sub {
+      font-size: 0.8125rem;
+      color: var(--text-muted, #6b7280);
+      margin-top: 2px;
+    }
+    .wa-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.18s;
+      margin-top: 20px;
+    }
+    .wa-cta-btn:hover { background: #1ebe5a; transform: translateY(-1px); }
+    .map-placeholder {
+      background: var(--sand, #F0EDE8);
+      border-radius: 12px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-sand, #E5E0D8);
+      margin-top: 20px;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .map-placeholder i { font-size: 2rem; color: var(--text-muted, #9ca3af); }
+    .map-placeholder p {
+      font-size: 0.8125rem;
+      color: var(--text-muted, #9ca3af);
+      text-align: center;
+      margin: 0;
+      line-height: 1.5;
+      padding: 0 16px;
+    }
+
+    /* ── WhatsApp promo strip ── */
+    .wa-strip {
+      background: #25D366;
+      padding: 64px 0;
+      text-align: center;
+    }
+    .wa-strip h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: #fff;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+    .wa-strip p {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.0625rem;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+    .wa-strip__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #128C7E;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .wa-strip__btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border-sand, #E5E0D8);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border-sand, #E5E0D8); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .faq-question span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      line-height: 1.4;
+    }
+    .faq-question i {
+      font-size: 1.25rem;
+      color: var(--gold, #C9972C);
+      flex-shrink: 0;
+      transition: transform 0.22s;
+    }
+    .faq-item--open .faq-question i { transform: rotate(45deg); }
+    .faq-answer {
+      display: none;
+      padding: 0 0 22px;
+      font-size: 0.9375rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.75;
+    }
+    .faq-item--open .faq-answer { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html#destinations" class="nav__link">Destinations</a></li>
+      <li><a href="packages.html" class="nav__link">Packages</a></li>
+      <li><a href="activities.html" class="nav__link">Activities</a></li>
+      <li><a href="visa.html" class="nav__link">Visa</a></li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link nav__link--active">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+         class="btn btn--primary btn--sm"
+         target="_blank" rel="noopener noreferrer"
+         style="display:none" id="navBookBtn">
+        Book Now
+      </a>
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="nav__drawer-links">
+    <a href="index.html#destinations" class="nav__drawer-link">Destinations <i class="ri-arrow-right-line"></i></a>
+    <a href="packages.html" class="nav__drawer-link">Packages <i class="ri-arrow-right-line"></i></a>
+    <a href="activities.html" class="nav__drawer-link">Activities <i class="ri-arrow-right-line"></i></a>
+    <a href="visa.html" class="nav__drawer-link">Visa Services <i class="ri-arrow-right-line"></i></a>
+    <a href="index.html#blog" class="nav__drawer-link">Blog <i class="ri-arrow-right-line"></i></a>
+    <a href="about.html" class="nav__drawer-link">About Us <i class="ri-arrow-right-line"></i></a>
+    <a href="contact.html" class="nav__drawer-link">Contact <i class="ri-arrow-right-line"></i></a>
+  </nav>
+  <div class="nav__drawer-cta">
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="btn btn--primary btn--full"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line"></i> Book Now on WhatsApp
+    </a>
+  </div>
+</aside>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero hero--short" aria-label="Contact hero" style="min-height:40vh;background:#0D1B2A;">
+  <div class="hero__overlay" aria-hidden="true" style="background:rgba(8,15,24,0.65);"></div>
+  <div class="hero__content" style="max-width:640px;">
+    <p class="eyebrow hero__eyebrow">GET IN TOUCH</p>
+    <h1 class="hero__headline" style="font-size:clamp(2rem,5vw,3.5rem);">Let's Plan Your Trip.</h1>
+    <p class="hero__sub" style="max-width:480px;">
+      Tell us where you want to go. We'll handle everything from there.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT FORM + DETAILS
+     ============================================================ -->
+<section class="section" aria-labelledby="contact-form-heading" style="background:var(--bg,#FAF7F2);">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Form -->
+      <div>
+        <h2 class="contact-form__heading" id="contact-form-heading">Send Your Enquiry</h2>
+        <p class="contact-form__sub">Fill in the form below and a real travel specialist will reply within 2 hours on WhatsApp.</p>
+
+        <form id="contactForm" novalidate aria-label="Trip enquiry form">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name <span aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="fullName" name="fullName"
+                placeholder="Your full name" required autocomplete="name" />
+              <p class="form-error-msg" id="fullName-error" role="alert">Please enter your full name.</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="emailAddress">Email Address <span aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="emailAddress" name="emailAddress"
+                placeholder="you@example.com" required autocomplete="email" />
+              <p class="form-error-msg" id="emailAddress-error" role="alert">Please enter a valid email address.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="whatsappNumber">WhatsApp Number <span aria-hidden="true">*</span></label>
+            <input class="form-input" type="tel" id="whatsappNumber" name="whatsappNumber"
+              placeholder="+971 50 000 0000" required autocomplete="tel" />
+            <p class="form-error-msg" id="whatsappNumber-error" role="alert">Please enter your WhatsApp number with country code.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="destinationInterest">Destination Interest <span aria-hidden="true">*</span></label>
+            <select class="form-select" id="destinationInterest" name="destinationInterest" required>
+              <option value="" disabled selected>Select a destination</option>
+              <optgroup label="UAE">
+                <option value="dubai">Dubai, UAE</option>
+              </optgroup>
+              <optgroup label="Africa">
+                <option value="tanzania">Tanzania</option>
+                <option value="south-africa">South Africa</option>
+                <option value="ethiopia">Ethiopia</option>
+                <option value="uganda">Uganda</option>
+                <option value="zambia">Zambia</option>
+                <option value="malawi">Malawi</option>
+                <option value="mozambique">Mozambique</option>
+              </optgroup>
+              <optgroup label="Asia">
+                <option value="india">India</option>
+                <option value="pakistan">Pakistan</option>
+                <option value="indonesia">Indonesia (Bali)</option>
+              </optgroup>
+              <optgroup label="Europe &amp; Americas">
+                <option value="moldova">Moldova</option>
+                <option value="panama">Panama</option>
+                <option value="germany">Germany</option>
+                <option value="united-kingdom">United Kingdom</option>
+              </optgroup>
+              <option value="multiple">Multiple Destinations</option>
+              <option value="unsure">Not Sure Yet</option>
+            </select>
+            <p class="form-error-msg" id="destinationInterest-error" role="alert">Please select a destination.</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="travelMonth">Travel Month</label>
+              <select class="form-select" id="travelMonth" name="travelMonth">
+                <option value="" disabled selected>Select month</option>
+                <option>April 2026</option>
+                <option>May 2026</option>
+                <option>June 2026</option>
+                <option>July 2026</option>
+                <option>August 2026</option>
+                <option>September 2026</option>
+                <option>October 2026</option>
+                <option>November 2026</option>
+                <option>December 2026</option>
+                <option>January 2027</option>
+                <option>February 2027</option>
+                <option>March 2027</option>
+                <option>Flexible / Unsure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="numTravellers">Number of Travellers</label>
+              <select class="form-select" id="numTravellers" name="numTravellers">
+                <option value="" disabled selected>Select</option>
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>2 Adults + 1 Child</option>
+                <option>2 Adults + 2 Children</option>
+                <option>2 Adults + 3+ Children</option>
+                <option>Group (5–10)</option>
+                <option>Group (10+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="budgetRange">Budget Range</label>
+            <select class="form-select" id="budgetRange" name="budgetRange">
+              <option value="" disabled selected>Select your budget</option>
+              <option>Under AED 1,000</option>
+              <option>AED 1,000 – 5,000</option>
+              <option>AED 5,000 – 15,000</option>
+              <option>AED 15,000+</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message / Special Requests</label>
+            <textarea class="form-textarea" id="message" name="message"
+              placeholder="Tell us more about what you're looking for — type of trip, dates, special occasions, anything that helps us plan better for you..."
+              rows="5"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="contactSubmitBtn">
+            <i class="ri-send-plane-fill"></i> &nbsp;Send My Enquiry
+          </button>
+
+          <p class="form-note">
+            <i class="ri-whatsapp-line" style="color:#25D366;"></i>
+            We respond on WhatsApp within 2 hours. Every enquiry is handled by a real travel specialist.
+          </p>
+
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+            <p><i class="ri-checkbox-circle-fill" style="color:#16a34a;margin-right:6px;"></i>
+              Your enquiry has been sent! A specialist will reply on WhatsApp within 2 hours.</p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- RIGHT: Contact Details -->
+      <aside class="contact-sidebar" aria-label="Contact information">
+
+        <div class="contact-detail-card">
+          <h3>Reach Us Directly</h3>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon contact-detail-icon--wa" aria-hidden="true">
+              <i class="ri-whatsapp-line"></i>
+            </div>
+            <div>
+              <div class="contact-detail-label">WhatsApp</div>
+              <div class="contact-detail-value">
+                <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">+971 50 694 4909</a>
+              </div>
+              <div class="contact-detail-sub">Fastest response — 2 hrs or less</div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon contact-detail-icon--phone" aria-hidden="true">
+              <i class="ri-phone-line"></i>
+            </div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value">
+                <a href="tel:+971561348248">+971 56 134 8248</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon contact-detail-icon--email" aria-hidden="true">
+              <i class="ri-mail-line"></i>
+            </div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">
+                <a href="mailto:info@bgstravelandtourism.com">info@bgstravelandtourism.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon contact-detail-icon--gold" aria-hidden="true">
+              <i class="ri-map-pin-line"></i>
+            </div>
+            <div>
+              <div class="contact-detail-label">Office Address</div>
+              <div class="contact-detail-value">DAMAS Tower, Office 205</div>
+              <div class="contact-detail-sub">2nd Al Maktoum Rd, Bur Dubai, Dubai — UAE</div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon contact-detail-icon--gold" aria-hidden="true">
+              <i class="ri-time-line"></i>
+            </div>
+            <div>
+              <div class="contact-detail-label">Office Hours</div>
+              <div class="contact-detail-value">Mon–Fri &nbsp;9am – 7pm</div>
+              <div class="contact-detail-sub">Sat 10am – 4pm &nbsp;·&nbsp; Sun Closed</div>
+              <div class="contact-detail-sub" style="margin-top:2px;">Dubai Time (GMT+4)</div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20get%20in%20touch"
+             class="wa-cta-btn"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Open WhatsApp chat with BGS Travel">
+            <i class="ri-whatsapp-line" style="font-size:1.25rem;"></i>
+            Chat With Us Now
+          </a>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="map-placeholder" role="img" aria-label="Google Maps location placeholder — BGS Travel Office, Bur Dubai">
+          <i class="ri-map-2-line" aria-hidden="true"></i>
+          <p>Google Maps — BGS Travel Office, Bur Dubai<br>
+            <span style="font-size:0.75rem;">[Replace with live Google Maps embed]</span>
+          </p>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHATSAPP PROMO STRIP
+     ============================================================ -->
+<div class="wa-strip" role="region" aria-label="WhatsApp contact promotion">
+  <div class="container">
+    <h3>Prefer WhatsApp? Most of our clients do.</h3>
+    <p>Send us a message right now. A real travel specialist (not a bot) will reply within 2 hours.</p>
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="wa-strip__btn"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line" style="font-size:1.3rem;"></i>
+      Open WhatsApp Chat
+    </a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section section--sand" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow">Common Questions</p>
+      <h2 id="faq-heading">Before You Get In Touch</h2>
+      <p>Quick answers to questions we hear every day.</p>
+    </div>
+
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+          <span>How quickly do you respond?</span>
+          <i class="ri-add-line" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer" id="faq-1" role="region">
+          Within 2 hours on WhatsApp, within 4 hours on email. Monday through Saturday. We don't use automated bots — every reply comes from a real team member who has read your enquiry.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+          <span>Do you charge for quotes?</span>
+          <i class="ri-add-line" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer" id="faq-2" role="region">
+          Never. All quotes and trip planning are completely free. We'll build you a full itinerary, price it up, and send it to you — no obligation, no deposit until you're ready to confirm.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+          <span>Can I visit your office in Dubai?</span>
+          <i class="ri-add-line" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer" id="faq-3" role="region">
+          Yes. We're at DAMAS Tower, Office 205, 2nd Al Maktoum Rd, Bur Dubai. Call or WhatsApp ahead and we'll make sure a specialist is available to sit down with you. Walk-ins are welcome during office hours.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+          <span>Do you work with corporate groups?</span>
+          <i class="ri-add-line" aria-hidden="true"></i>
+        </button>
+        <div class="faq-answer" id="faq-4" role="region">
+          Yes. We handle incentive travel, team experiences, and corporate group bookings of any size. From a team of 10 on a desert safari to a company of 200 on a full international incentive programme — we have the infrastructure and experience to manage it all.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+        <p class="footer__about-text">
+          Dubai's home-grown travel & tourism company, crafting tailor-made trips to 15 destinations worldwide since 2014.
+        </p>
+        <div>
+          <div class="footer__contact-item">
+            <i class="ri-map-pin-line" style="color:var(--gold);margin-top:2px;"></i>
+            <span>DAMAS Tower, Office 205, 2nd Al Maktoum Rd, Bur Dubai, Dubai — UAE</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-phone-line" style="color:var(--gold);"></i>
+            <a href="tel:+971561348248">+971 56 134 8248</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-mail-line" style="color:var(--gold);"></i>
+            <a href="mailto:info@bgstravelandtourism.com">info@bgstravelandtourism.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-whatsapp-line" style="color:var(--whatsapp);"></i>
+            <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+          </div>
+        </div>
+        <div class="footer__social" role="list" aria-label="Social media links">
+          <a href="#" class="footer__social-icon" aria-label="Instagram" role="listitem"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook" role="listitem"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="TikTok" role="listitem"><i class="ri-tiktok-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube" role="listitem"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn" role="listitem"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Destinations</h3>
+        <nav class="footer__links" aria-label="Destination links">
+          <a href="destinations/dubai.html" class="footer__link">UAE &amp; Dubai</a>
+          <a href="destinations/tanzania.html" class="footer__link">Tanzania</a>
+          <a href="destinations/south-africa.html" class="footer__link">South Africa</a>
+          <a href="destinations/ethiopia.html" class="footer__link">Ethiopia</a>
+          <a href="destinations/uganda.html" class="footer__link">Uganda</a>
+          <a href="destinations/zambia.html" class="footer__link">Zambia</a>
+          <a href="destinations/malawi.html" class="footer__link">Malawi</a>
+          <a href="destinations/mozambique.html" class="footer__link">Mozambique</a>
+          <a href="destinations/india.html" class="footer__link">India</a>
+          <a href="destinations/pakistan.html" class="footer__link">Pakistan</a>
+          <a href="destinations/indonesia.html" class="footer__link">Indonesia</a>
+          <a href="destinations/germany.html" class="footer__link">Germany</a>
+          <a href="destinations/united-kingdom.html" class="footer__link">United Kingdom</a>
+          <a href="destinations/moldova.html" class="footer__link">Moldova</a>
+          <a href="destinations/panama.html" class="footer__link">Panama</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Quick links">
+          <a href="packages.html" class="footer__link">All Packages</a>
+          <a href="activities.html" class="footer__link">Activities</a>
+          <a href="visa.html" class="footer__link">Visa Services</a>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="contact.html" class="footer__link">Contact Us</a>
+          <a href="blog.html" class="footer__link">Blog &amp; Travel Guides</a>
+          <a href="privacy.html" class="footer__link" style="margin-top:8px;">Privacy Policy</a>
+          <a href="terms.html" class="footer__link">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Stay Inspired</h3>
+        <p class="footer__newsletter-text">
+          Get weekly travel deals, destination guides, and insider tips delivered straight to your inbox.
+        </p>
+        <form class="footer__newsletter-form" novalidate aria-label="Newsletter signup">
+          <input class="footer__newsletter-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+        </form>
+        <p class="footer__license">Dubai Tourism Licence: [LICENCE NO]</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 BGS Travel and Tourism LLC. All Rights Reserved.</span>
+      <span>&middot; Dubai, UAE &middot;</span>
+      <span>Designed with care for every traveller.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     STICKY MOBILE BOTTOM BAR
+     ============================================================ -->
+<div class="sticky-bar" role="navigation" aria-label="Mobile quick actions">
+  <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20book%20a%20trip"
+     class="sticky-bar__btn sticky-bar__btn--wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <i class="ri-whatsapp-line"></i> WhatsApp Us
+  </a>
+  <a href="contact.html" class="sticky-bar__btn sticky-bar__btn--plan" aria-label="Plan my trip">
+    <i class="ri-map-2-line"></i> Plan My Trip
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+
+  // ── Contact form validation ──
+  var form = document.getElementById('contactForm');
+  var successMsg = document.getElementById('formSuccess');
+
+  function validateField(input) {
+    var id = input.id;
+    var errorEl = document.getElementById(id + '-error');
+    var valid = true;
+
+    if (input.hasAttribute('required')) {
+      if (input.tagName === 'SELECT') {
+        valid = input.value !== '';
+      } else if (input.type === 'email') {
+        valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      } else if (input.type === 'tel') {
+        valid = /^\+?[\d\s\-()]{7,}$/.test(input.value.trim());
+      } else {
+        valid = input.value.trim().length >= 2;
+      }
+    }
+
+    if (errorEl) {
+      input.classList.toggle('error', !valid);
+      errorEl.classList.toggle('visible', !valid);
+    }
+
+    return valid;
+  }
+
+  // Live validation on blur
+  form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function (el) {
+    el.addEventListener('blur', function () { validateField(el); });
+    el.addEventListener('input', function () {
+      if (el.classList.contains('error')) validateField(el);
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var requiredFields = form.querySelectorAll('[required]');
+    var allValid = true;
+
+    requiredFields.forEach(function (field) {
+      if (!validateField(field)) allValid = false;
+    });
+
+    if (!allValid) {
+      form.querySelector('.error').focus();
+      return;
+    }
+
+    // Collect form data
+    var data = {
+      fullName:            document.getElementById('fullName').value.trim(),
+      emailAddress:        document.getElementById('emailAddress').value.trim(),
+      whatsappNumber:      document.getElementById('whatsappNumber').value.trim(),
+      destinationInterest: document.getElementById('destinationInterest').value,
+      travelMonth:         document.getElementById('travelMonth').value,
+      numTravellers:       document.getElementById('numTravellers').value,
+      budgetRange:         document.getElementById('budgetRange').value,
+      message:             document.getElementById('message').value.trim(),
+      submittedAt:         new Date().toISOString()
+    };
+
+    // TODO: wire to GHL webhook
+    // fetch('https://hooks.gohighlevel.com/your-webhook-url', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+
+    console.log('BGS Contact Form Submission:', data);
+
+    // Show success state
+    var submitBtn = document.getElementById('contactSubmitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sent!';
+    submitBtn.style.background = '#16a34a';
+    submitBtn.style.color = '#fff';
+    successMsg.classList.add('visible');
+
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+
+  // ── FAQ accordion ──
+  var faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(function (item) {
+    var btn = item.querySelector('.faq-question');
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('faq-item--open');
+
+      // Close all
+      faqItems.forEach(function (i) {
+        i.classList.remove('faq-item--open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('faq-item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+})();
+</script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+</body>
+</html>

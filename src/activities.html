@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dubai Activities &amp; Excursions | BGS Travel &amp; Tourism</title>
+  <meta name="description" content="30+ handpicked Dubai activities — desert safaris, dhow cruises, helicopter tours, family days, and more. Book instantly on WhatsApp." />
+  <meta property="og:title" content="Dubai Activities &amp; Excursions | BGS Travel &amp; Tourism" />
+  <meta property="og:description" content="From dune bashing to helicopter rides — every Dubai experience, handpicked by specialists." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+    /* ── Activity filter bar ── */
+    .act-filter-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border-sand, #E5E0D8);
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+      padding: 0 24px;
+    }
+    .act-filter-bar__inner {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 14px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .act-filter-bar__inner::-webkit-scrollbar { display: none; }
+    .act-filter {
+      white-space: nowrap;
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 2px solid var(--border-sand, #E5E0D8);
+      background: transparent;
+      color: var(--text-primary, #0D1B2A);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      flex-shrink: 0;
+    }
+    .act-filter:hover,
+    .act-filter--active {
+      background: var(--gold, #C9972C);
+      border-color: var(--gold, #C9972C);
+      color: #0D1B2A;
+    }
+
+    /* ── 4-col activity grid ── */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 1024px) { .activity-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 720px)  { .activity-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    @media (max-width: 400px)  { .activity-grid { grid-template-columns: 1fr; } }
+
+    /* ── Activity card ── */
+    .act-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(13,27,42,0.07);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .act-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(13,27,42,0.13); }
+    .act-card[data-hidden="true"] { display: none; }
+
+    .act-card__circle-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 24px 24px 12px;
+    }
+    .act-card__circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--border-sand, #E5E0D8);
+    }
+    .act-card__circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .act-card__body {
+      padding: 0 20px 8px;
+      text-align: center;
+      flex: 1;
+    }
+    .act-card__tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold, #C9972C);
+      background: rgba(201,151,44,0.1);
+      border-radius: 4px;
+      padding: 3px 9px;
+      margin-bottom: 8px;
+    }
+    .act-card__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--navy, #0D1B2A);
+      margin: 0 0 6px;
+      line-height: 1.3;
+    }
+    .act-card__price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--gold, #C9972C);
+      margin-bottom: 8px;
+    }
+    .act-card__desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .act-card__footer {
+      padding: 12px 20px 20px;
+      text-align: center;
+    }
+    .act-card__wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.18s;
+      width: 100%;
+      justify-content: center;
+    }
+    .act-card__wa:hover { background: #1ebe5a; transform: translateY(-1px); }
+
+    /* ── Collection cards ── */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 768px) { .collection-grid { grid-template-columns: 1fr; } }
+
+    .collection-card {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .collection-card__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .collection-card__body {
+      padding: 24px;
+    }
+    .collection-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 16px;
+    }
+    .collection-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+    .collection-card__list li {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.72);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .collection-card__list li i { color: var(--gold, #C9972C); flex-shrink: 0; }
+    .collection-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 11px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .collection-card__cta:hover { background: #1ebe5a; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html#destinations" class="nav__link">Destinations</a></li>
+      <li><a href="packages.html" class="nav__link">Packages</a></li>
+      <li><a href="activities.html" class="nav__link nav__link--active">Activities</a></li>
+      <li><a href="visa.html" class="nav__link">Visa</a></li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+         class="btn btn--primary btn--sm"
+         target="_blank" rel="noopener noreferrer"
+         style="display:none" id="navBookBtn">
+        Book Now
+      </a>
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="nav__drawer-links">
+    <a href="index.html#destinations" class="nav__drawer-link">Destinations <i class="ri-arrow-right-line"></i></a>
+    <a href="packages.html" class="nav__drawer-link">Packages <i class="ri-arrow-right-line"></i></a>
+    <a href="activities.html" class="nav__drawer-link">Activities <i class="ri-arrow-right-line"></i></a>
+    <a href="visa.html" class="nav__drawer-link">Visa Services <i class="ri-arrow-right-line"></i></a>
+    <a href="index.html#blog" class="nav__drawer-link">Blog <i class="ri-arrow-right-line"></i></a>
+    <a href="about.html" class="nav__drawer-link">About Us <i class="ri-arrow-right-line"></i></a>
+    <a href="contact.html" class="nav__drawer-link">Contact <i class="ri-arrow-right-line"></i></a>
+  </nav>
+  <div class="nav__drawer-cta">
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="btn btn--primary btn--full"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line"></i> Book Now on WhatsApp
+    </a>
+  </div>
+</aside>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero hero--short" aria-label="Activities hero" style="min-height:50vh;">
+  <div class="hero__bg" aria-hidden="true">
+    <img
+      class="hero__img"
+      src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1920&q=80"
+      alt="Dubai activities montage — desert, skyline, and water experiences"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content" style="max-width:700px;">
+    <p class="eyebrow hero__eyebrow">DUBAI ACTIVITIES &amp; EXCURSIONS</p>
+    <h1 class="hero__headline" style="font-size:clamp(2.4rem,5.5vw,4rem);">Do More in Dubai.</h1>
+    <p class="hero__sub" style="max-width:540px;">
+      30+ handpicked experiences. Day trips, evening adventures, family days, and once-in-a-lifetime moments.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STICKY CATEGORY FILTER
+     ============================================================ -->
+<div class="act-filter-bar" role="navigation" aria-label="Filter activities by category">
+  <div class="act-filter-bar__inner">
+    <button class="act-filter act-filter--active" data-filter="all" aria-pressed="true">All</button>
+    <button class="act-filter" data-filter="desert" aria-pressed="false">Desert</button>
+    <button class="act-filter" data-filter="water" aria-pressed="false">Water</button>
+    <button class="act-filter" data-filter="sightseeing" aria-pressed="false">Sightseeing</button>
+    <button class="act-filter" data-filter="luxury" aria-pressed="false">Luxury</button>
+    <button class="act-filter" data-filter="family" aria-pressed="false">Family</button>
+    <button class="act-filter" data-filter="adventure" aria-pressed="false">Adventure</button>
+    <button class="act-filter" data-filter="cultural" aria-pressed="false">Cultural</button>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     ACTIVITIES GRID
+     ============================================================ -->
+<section class="section" aria-labelledby="activities-heading" style="background:var(--bg,#FAF7F2);">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow">Handpicked for Every Traveller</p>
+      <h2 id="activities-heading">Dubai's Best Experiences</h2>
+      <p>Every activity is vetted, priced fairly, and bookable in minutes via WhatsApp.</p>
+    </div>
+
+    <div class="activity-grid" id="activityGrid" role="list" aria-label="Dubai activity cards">
+
+      <!-- 1. Evening Desert Safari -->
+      <article class="act-card" data-category="desert adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=300&q=75"
+              alt="Evening desert safari dunes at sunset" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Desert</span>
+          <h3 class="act-card__name">Evening Desert Safari</h3>
+          <div class="act-card__price">From AED 180</div>
+          <p class="act-card__desc">Dune bashing + camel + BBQ + entertainment</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Evening%20Desert%20Safari"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. Morning Desert Safari -->
+      <article class="act-card" data-category="desert adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?w=300&q=75"
+              alt="Morning desert safari at sunrise over Dubai dunes" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Desert</span>
+          <h3 class="act-card__name">Morning Desert Safari</h3>
+          <div class="act-card__price">From AED 150</div>
+          <p class="act-card__desc">Sunrise dunes, camel ride, light breakfast</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Morning%20Desert%20Safari"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. Overnight Desert Camping -->
+      <article class="act-card" data-category="desert adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1504151932400-72d4384f04b3?w=300&q=75"
+              alt="Bedouin camp under a starlit desert sky" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Desert</span>
+          <h3 class="act-card__name">Overnight Desert Camping</h3>
+          <div class="act-card__price">From AED 350</div>
+          <p class="act-card__desc">Sleep under the stars in a Bedouin camp</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Overnight%20Desert%20Camping"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 4. Hot Air Balloon -->
+      <article class="act-card" data-category="desert luxury adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=75"
+              alt="Hot air balloon floating above Dubai desert at dawn" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Desert</span>
+          <h3 class="act-card__name">Hot Air Balloon Ride</h3>
+          <div class="act-card__price">From AED 795</div>
+          <p class="act-card__desc">Float over the desert at dawn</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Hot%20Air%20Balloon%20Ride"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 5. Quad Biking -->
+      <article class="act-card" data-category="desert adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=300&q=75"
+              alt="Quad biking through Dubai desert dunes" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Desert</span>
+          <h3 class="act-card__name">Quad Biking in the Desert</h3>
+          <div class="act-card__price">From AED 250</div>
+          <p class="act-card__desc">30 or 60-minute quad bike through dunes</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Quad%20Biking"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 6. Dhow Cruise Creek -->
+      <article class="act-card" data-category="water" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=300&q=75"
+              alt="Traditional dhow cruise on Dubai Creek at night" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Water</span>
+          <h3 class="act-card__name">Dhow Cruise (Creek)</h3>
+          <div class="act-card__price">From AED 120</div>
+          <p class="act-card__desc">Traditional wooden dhow, buffet dinner, entertainment</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Dhow%20Cruise%20Creek"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 7. Dhow Cruise Marina -->
+      <article class="act-card" data-category="water" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=300&q=75"
+              alt="Dubai Marina at night from a dhow cruise" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Water</span>
+          <h3 class="act-card__name">Dhow Cruise (Marina)</h3>
+          <div class="act-card__price">From AED 150</div>
+          <p class="act-card__desc">Modern Marina views, international buffet</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Dhow%20Cruise%20Marina"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 8. Luxury Yacht Charter -->
+      <article class="act-card" data-category="water luxury" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=300&q=75"
+              alt="Private luxury yacht with Palm Jumeirah in background" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Water</span>
+          <h3 class="act-card__name">Luxury Yacht Charter</h3>
+          <div class="act-card__price">From AED 350</div>
+          <p class="act-card__desc">2-hour private yacht, Palm + Burj Al Arab views</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20a%20Luxury%20Yacht%20Charter"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 9. Jet Ski -->
+      <article class="act-card" data-category="water adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1530053969600-caed2596d242?w=300&q=75"
+              alt="Jet ski speeding along JBR beach in Dubai" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Water</span>
+          <h3 class="act-card__name">Jet Ski Dubai</h3>
+          <div class="act-card__price">From AED 200</div>
+          <p class="act-card__desc">30-minute jet ski along JBR beach</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Jet%20Ski%20Dubai"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 10. Burj Khalifa -->
+      <article class="act-card" data-category="sightseeing" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=75"
+              alt="Burj Khalifa observation deck view over Dubai skyline" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Sightseeing</span>
+          <h3 class="act-card__name">Burj Khalifa (At the Top)</h3>
+          <div class="act-card__price">From AED 149</div>
+          <p class="act-card__desc">Levels 124 &amp; 125 observation deck</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Burj%20Khalifa%20At%20the%20Top"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 11. Dubai Frame -->
+      <article class="act-card" data-category="sightseeing cultural" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1606820854416-439b3305ff40?w=300&q=75"
+              alt="Dubai Frame glass bridge spanning old and new Dubai" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Sightseeing</span>
+          <h3 class="act-card__name">Dubai Frame</h3>
+          <div class="act-card__price">From AED 50</div>
+          <p class="act-card__desc">Walk the glass bridge between old and new Dubai</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Dubai%20Frame"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 12. Dubai City Tour -->
+      <article class="act-card" data-category="sightseeing cultural" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=300&q=75"
+              alt="Dubai city skyline with iconic landmarks visible" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Sightseeing</span>
+          <h3 class="act-card__name">Dubai City Tour</h3>
+          <div class="act-card__price">From AED 95</div>
+          <p class="act-card__desc">Half-day guided tour of all major landmarks</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Dubai%20City%20Tour"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 13. IMG Worlds -->
+      <article class="act-card" data-category="family" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1538032079660-e4d4e3c25540?w=300&q=75"
+              alt="Family enjoying rides at IMG Worlds of Adventure Dubai" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Family</span>
+          <h3 class="act-card__name">IMG Worlds of Adventure</h3>
+          <div class="act-card__price">From AED 299</div>
+          <p class="act-card__desc">World's largest indoor theme park</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20IMG%20Worlds%20of%20Adventure"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 14. Dubai Aquarium -->
+      <article class="act-card" data-category="family sightseeing" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&q=75"
+              alt="Shark and rays swimming in Dubai Aquarium tank" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Family</span>
+          <h3 class="act-card__name">Dubai Aquarium &amp; Underwater Zoo</h3>
+          <div class="act-card__price">From AED 80</div>
+          <p class="act-card__desc">Sharks, rays, crocs and 33,000 animals</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Dubai%20Aquarium"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 15. Global Village -->
+      <article class="act-card" data-category="family cultural" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=300&q=75"
+              alt="Global Village Dubai colourful pavilions at night" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Family</span>
+          <h3 class="act-card__name">Global Village</h3>
+          <div class="act-card__price">From AED 25</div>
+          <p class="act-card__desc">Seasonal (Oct–Apr) — 90+ countries, food, entertainment</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20Global%20Village"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- 16. Private Helicopter -->
+      <article class="act-card" data-category="luxury sightseeing adventure" role="listitem">
+        <div class="act-card__circle-wrap">
+          <div class="act-card__circle">
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1473655851370-6a00da8e6374?w=300&q=75"
+              alt="Private helicopter flying over Palm Jumeirah Dubai" />
+          </div>
+        </div>
+        <div class="act-card__body">
+          <span class="act-card__tag">Luxury</span>
+          <h3 class="act-card__name">Private Helicopter City Tour</h3>
+          <div class="act-card__price">From AED 650</div>
+          <p class="act-card__desc">12-minute private helicopter over Palm + Marina</p>
+        </div>
+        <div class="act-card__footer">
+          <a href="https://wa.me/971506944909?text=Hi%20I%27d%20like%20to%20book%20the%20Private%20Helicopter%20Tour"
+             class="act-card__wa" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Book Now
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /activity grid -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CURATED COLLECTIONS
+     ============================================================ -->
+<section class="section section--dark" aria-labelledby="collections-heading">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:48px;">
+      <p class="eyebrow">Curated Collections</p>
+      <h2 id="collections-heading" style="color:#fff;">Not Sure Where to Start?</h2>
+      <p style="color:rgba(255,255,255,0.65);">We've grouped our most popular activities into three collections — pick yours and we'll plan the rest.</p>
+    </div>
+
+    <div class="collection-grid">
+
+      <!-- Families -->
+      <div class="collection-card">
+        <img class="collection-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1538032079660-e4d4e3c25540?w=700&q=75"
+          alt="Family enjoying Dubai experiences together" />
+        <div class="collection-card__body">
+          <h3 class="collection-card__title">For Families</h3>
+          <ul class="collection-card__list">
+            <li><i class="ri-checkbox-circle-line"></i> IMG Worlds of Adventure</li>
+            <li><i class="ri-checkbox-circle-line"></i> Dubai Aquarium &amp; Underwater Zoo</li>
+            <li><i class="ri-checkbox-circle-line"></i> Evening Desert Safari with Kids' Camp</li>
+          </ul>
+          <a href="https://wa.me/971506944909?text=Hi%2C%20I%27d%20like%20to%20build%20a%20family%20day%20in%20Dubai"
+             class="collection-card__cta" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Build My Family Day
+          </a>
+        </div>
+      </div>
+
+      <!-- Couples -->
+      <div class="collection-card">
+        <img class="collection-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=700&q=75"
+          alt="Couple enjoying a romantic dhow cruise in Dubai" />
+        <div class="collection-card__body">
+          <h3 class="collection-card__title">For Couples</h3>
+          <ul class="collection-card__list">
+            <li><i class="ri-checkbox-circle-line"></i> Luxury Yacht Charter (Sunset)</li>
+            <li><i class="ri-checkbox-circle-line"></i> Hot Air Balloon at Dawn</li>
+            <li><i class="ri-checkbox-circle-line"></i> Marina Dhow Cruise Dinner</li>
+          </ul>
+          <a href="https://wa.me/971506944909?text=Hi%2C%20I%27d%20like%20to%20plan%20a%20romantic%20day%20in%20Dubai"
+             class="collection-card__cta" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Build My Couples Day
+          </a>
+        </div>
+      </div>
+
+      <!-- Groups -->
+      <div class="collection-card">
+        <img class="collection-card__img" loading="lazy"
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=75"
+          alt="Group of friends enjoying Dubai adventure activities" />
+        <div class="collection-card__body">
+          <h3 class="collection-card__title">For Groups</h3>
+          <ul class="collection-card__list">
+            <li><i class="ri-checkbox-circle-line"></i> Private Evening Desert Safari</li>
+            <li><i class="ri-checkbox-circle-line"></i> Private Yacht Charter</li>
+            <li><i class="ri-checkbox-circle-line"></i> Dubai City Tour (Private Coach)</li>
+          </ul>
+          <a href="https://wa.me/971506944909?text=Hi%2C%20I%27d%20like%20to%20plan%20a%20group%20day%20in%20Dubai"
+             class="collection-card__cta" target="_blank" rel="noopener noreferrer">
+            <i class="ri-whatsapp-line"></i> Build My Group Day
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+        <p class="footer__about-text">
+          Dubai's home-grown travel & tourism company, crafting tailor-made trips to 15 destinations worldwide since 2014.
+        </p>
+        <div>
+          <div class="footer__contact-item">
+            <i class="ri-map-pin-line" style="color:var(--gold);margin-top:2px;"></i>
+            <span>DAMAS Tower, Office 205, 2nd Al Maktoum Rd, Bur Dubai, Dubai — UAE</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-phone-line" style="color:var(--gold);"></i>
+            <a href="tel:+971561348248">+971 56 134 8248</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-mail-line" style="color:var(--gold);"></i>
+            <a href="mailto:info@bgstravelandtourism.com">info@bgstravelandtourism.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-whatsapp-line" style="color:var(--whatsapp);"></i>
+            <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+          </div>
+        </div>
+        <div class="footer__social" role="list" aria-label="Social media links">
+          <a href="#" class="footer__social-icon" aria-label="Instagram" role="listitem"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook" role="listitem"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="TikTok" role="listitem"><i class="ri-tiktok-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube" role="listitem"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn" role="listitem"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Destinations</h3>
+        <nav class="footer__links" aria-label="Destination links">
+          <a href="destinations/dubai.html" class="footer__link">UAE &amp; Dubai</a>
+          <a href="destinations/tanzania.html" class="footer__link">Tanzania</a>
+          <a href="destinations/south-africa.html" class="footer__link">South Africa</a>
+          <a href="destinations/ethiopia.html" class="footer__link">Ethiopia</a>
+          <a href="destinations/uganda.html" class="footer__link">Uganda</a>
+          <a href="destinations/zambia.html" class="footer__link">Zambia</a>
+          <a href="destinations/malawi.html" class="footer__link">Malawi</a>
+          <a href="destinations/mozambique.html" class="footer__link">Mozambique</a>
+          <a href="destinations/india.html" class="footer__link">India</a>
+          <a href="destinations/pakistan.html" class="footer__link">Pakistan</a>
+          <a href="destinations/indonesia.html" class="footer__link">Indonesia</a>
+          <a href="destinations/germany.html" class="footer__link">Germany</a>
+          <a href="destinations/united-kingdom.html" class="footer__link">United Kingdom</a>
+          <a href="destinations/moldova.html" class="footer__link">Moldova</a>
+          <a href="destinations/panama.html" class="footer__link">Panama</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Quick links">
+          <a href="packages.html" class="footer__link">All Packages</a>
+          <a href="activities.html" class="footer__link">Activities</a>
+          <a href="visa.html" class="footer__link">Visa Services</a>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="contact.html" class="footer__link">Contact Us</a>
+          <a href="blog.html" class="footer__link">Blog &amp; Travel Guides</a>
+          <a href="privacy.html" class="footer__link" style="margin-top:8px;">Privacy Policy</a>
+          <a href="terms.html" class="footer__link">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Stay Inspired</h3>
+        <p class="footer__newsletter-text">
+          Get weekly travel deals, destination guides, and insider tips delivered straight to your inbox.
+        </p>
+        <form class="footer__newsletter-form" novalidate aria-label="Newsletter signup">
+          <input class="footer__newsletter-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+        </form>
+        <p class="footer__license">Dubai Tourism Licence: [LICENCE NO]</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 BGS Travel and Tourism LLC. All Rights Reserved.</span>
+      <span>&middot; Dubai, UAE &middot;</span>
+      <span>Designed with care for every traveller.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     STICKY MOBILE BOTTOM BAR
+     ============================================================ -->
+<div class="sticky-bar" role="navigation" aria-label="Mobile quick actions">
+  <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20book%20a%20trip"
+     class="sticky-bar__btn sticky-bar__btn--wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <i class="ri-whatsapp-line"></i> WhatsApp Us
+  </a>
+  <a href="contact.html" class="sticky-bar__btn sticky-bar__btn--plan" aria-label="Plan my trip">
+    <i class="ri-map-2-line"></i> Plan My Trip
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var filterBtns = document.querySelectorAll('.act-filter');
+  var cards = document.querySelectorAll('#activityGrid .act-card');
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = btn.getAttribute('data-filter');
+
+      filterBtns.forEach(function (b) {
+        b.classList.remove('act-filter--active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('act-filter--active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      cards.forEach(function (card) {
+        var cats = card.getAttribute('data-category') || '';
+        if (filter === 'all' || cats.indexOf(filter) !== -1) {
+          card.removeAttribute('data-hidden');
+        } else {
+          card.setAttribute('data-hidden', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+</body>
+</html>

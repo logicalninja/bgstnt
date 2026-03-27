@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Packages | BGS Travel &amp; Tourism — Dubai, Africa, Asia &amp; More</title>
+  <meta name="description" content="Browse all BGS Travel packages — Dubai day tours, African safaris, Bali, Rajasthan and more. Filter by destination, duration, and travel style. Free quotes." />
+  <meta property="og:title" content="All Packages | BGS Travel &amp; Tourism" />
+  <meta property="og:description" content="12+ handpicked packages from Dubai desert safaris to 8-day Africa itineraries. Find your perfect trip." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
+  <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html#destinations" class="nav__link">Destinations</a></li>
+      <li><a href="packages.html" class="nav__link nav__link--active">Packages</a></li>
+      <li><a href="activities.html" class="nav__link">Activities</a></li>
+      <li><a href="visa.html" class="nav__link">Visa</a></li>
+      <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+         class="btn btn--primary btn--sm"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display:none"
+         id="navBookBtn">
+        Book Now
+      </a>
+      <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer overlay -->
+<div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- Mobile drawer -->
+<aside class="nav__drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="nav__drawer-header">
+    <div class="nav__logo">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </div>
+    <button class="nav__drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="nav__drawer-links">
+    <a href="index.html#destinations" class="nav__drawer-link">Destinations <i class="ri-arrow-right-line"></i></a>
+    <a href="packages.html" class="nav__drawer-link">Packages <i class="ri-arrow-right-line"></i></a>
+    <a href="activities.html" class="nav__drawer-link">Activities <i class="ri-arrow-right-line"></i></a>
+    <a href="visa.html" class="nav__drawer-link">Visa Services <i class="ri-arrow-right-line"></i></a>
+    <a href="index.html#blog" class="nav__drawer-link">Blog <i class="ri-arrow-right-line"></i></a>
+    <a href="about.html" class="nav__drawer-link">About Us <i class="ri-arrow-right-line"></i></a>
+    <a href="contact.html" class="nav__drawer-link">Contact <i class="ri-arrow-right-line"></i></a>
+  </nav>
+  <div class="nav__drawer-cta">
+    <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip"
+       class="btn btn--primary btn--full"
+       target="_blank" rel="noopener noreferrer">
+      <i class="ri-whatsapp-line"></i> Book Now on WhatsApp
+    </a>
+  </div>
+</aside>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero hero--short" aria-label="Packages hero" style="min-height:50vh;">
+  <div class="hero__bg" aria-hidden="true">
+    <img
+      class="hero__img"
+      src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=80"
+      alt="Dubai desert dunes at golden sunset"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content" style="max-width:760px;">
+    <p class="eyebrow hero__eyebrow">EXPLORE ALL PACKAGES</p>
+    <h1 class="hero__headline" style="font-size:clamp(2.2rem,5vw,3.75rem);">Find Your Perfect Trip</h1>
+    <p class="hero__sub" style="max-width:580px;">
+      From Dubai day experiences to 14-day safari adventures — browse, filter, and book with confidence.
+    </p>
+
+    <!-- Filter bar -->
+    <div id="filterBar" role="group" aria-label="Filter packages by category" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+      <button class="pkg-filter pkg-filter--active" data-filter="all" aria-pressed="true">All</button>
+      <button class="pkg-filter" data-filter="dubai" aria-pressed="false">Dubai</button>
+      <button class="pkg-filter" data-filter="africa" aria-pressed="false">Africa</button>
+      <button class="pkg-filter" data-filter="asia" aria-pressed="false">Asia</button>
+      <button class="pkg-filter" data-filter="europe" aria-pressed="false">Europe</button>
+      <button class="pkg-filter" data-filter="luxury" aria-pressed="false">Luxury</button>
+      <button class="pkg-filter" data-filter="family" aria-pressed="false">Family</button>
+      <button class="pkg-filter" data-filter="adventure" aria-pressed="false">Adventure</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.pkg-filter {
+  padding: 9px 20px;
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  backdrop-filter: blur(4px);
+}
+.pkg-filter:hover,
+.pkg-filter--active {
+  background: var(--gold, #C9972C);
+  border-color: var(--gold, #C9972C);
+  color: #0D1B2A;
+}
+.pkg-filter--active {
+  font-weight: 700;
+}
+.package-card[data-hidden="true"] {
+  display: none;
+}
+.packages-count {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-muted, #6b7280);
+  margin-bottom: 8px;
+}
+.tag--luxury {
+  background: #0D1B2A;
+  color: #C9972C;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.tag--family {
+  background: #1a4d3a;
+  color: #5dd49a;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.tag--adventure {
+  background: #6b1c1c;
+  color: #f8a87e;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.enquiry-strip {
+  background: #0D1B2A;
+  padding: 72px 0;
+  text-align: center;
+}
+.enquiry-strip h2 {
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin: 0 0 16px;
+}
+.enquiry-strip p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.0625rem;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+.enquiry-strip__btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+</style>
+
+
+<!-- ============================================================
+     PACKAGES GRID
+     ============================================================ -->
+<section class="section" id="packagesGrid" style="background:var(--bg,#FAF7F2);" aria-labelledby="packages-heading">
+  <div class="container">
+    <div class="section-header section-header--center" style="margin-bottom:40px;">
+      <p class="eyebrow">Our Packages</p>
+      <h2 id="packages-heading">Curated Trips. Real Experiences.</h2>
+      <p>Every package is designed by specialists who have been there. No filler. No guesswork.</p>
+    </div>
+
+    <p class="packages-count" id="packagesCount" aria-live="polite">Showing 12 packages</p>
+
+    <div class="grid-3" id="packagesGrid" role="list" aria-label="Package cards" style="gap:32px;">
+
+      <!-- 1. Evening Desert Safari -->
+      <article class="package-card" data-category="dubai adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=700&q=75"
+            alt="Evening desert safari dune bashing at golden hour" />
+          <span class="package-card__badge">Full Day</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Adventure &middot; Dubai</div>
+          <h3 class="package-card__title">Evening Desert Safari with BBQ Dinner</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.9</span>
+            <span class="count">(142 reviews)</span>
+          </div>
+          <p class="package-card__desc">Thrilling dune bashing, camel rides, belly dancing, and a lavish BBQ dinner under the stars in the Arabian desert.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 180 <span>/ person</span></div>
+          <a href="packages/evening-desert-safari.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 2. Luxury Dhow Cruise -->
+      <article class="package-card" data-category="dubai" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=700&q=75"
+            alt="Luxury dhow cruise on Dubai Creek at night" />
+          <span class="package-card__badge">Half Day</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Water Experience &middot; Dubai</div>
+          <h3 class="package-card__title">Luxury Dhow Cruise Dinner</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.8</span>
+            <span class="count">(98 reviews)</span>
+          </div>
+          <p class="package-card__desc">Glide along historic Dubai Creek on a traditional wooden dhow with live entertainment, unlimited buffet, and skyline views.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 120 <span>/ person</span></div>
+          <a href="packages/dhow-cruise-dubai.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 3. Private City Tour + Helicopter -->
+      <article class="package-card" data-category="dubai luxury" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700&q=75"
+            alt="Helicopter view over Dubai Palm Jumeirah" />
+          <span class="package-card__badge">Full Day</span>
+          <span class="tag--luxury" style="position:absolute;top:44px;left:12px;">LUXURY</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Luxury &middot; Dubai</div>
+          <h3 class="package-card__title">Private Dubai City Tour + Helicopter</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>5.0</span>
+            <span class="count">(21 reviews)</span>
+          </div>
+          <p class="package-card__desc">Full-day private car tour of Dubai's iconic landmarks followed by a breathtaking helicopter flight over the Palm and Marina.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 1,650 <span>/ person</span></div>
+          <a href="packages/dubai-city-helicopter.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 4. Dubai Frame + Gold Souk -->
+      <article class="package-card" data-category="dubai" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1606820854416-439b3305ff40?w=700&q=75"
+            alt="Dubai Frame glass bridge with old and new Dubai views" />
+          <span class="package-card__badge">Half Day</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Cultural &middot; Dubai</div>
+          <h3 class="package-card__title">Dubai Frame + Gold Souk Cultural Tour</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.7</span>
+            <span class="count">(56 reviews)</span>
+          </div>
+          <p class="package-card__desc">Walk the iconic glass bridge at Dubai Frame then explore the glittering Gold and Spice Souks of old Deira with a local guide.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 95 <span>/ person</span></div>
+          <a href="packages/dubai-frame-gold-souk.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 5. Hot Air Balloon -->
+      <article class="package-card" data-category="dubai luxury adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=75"
+            alt="Hot air balloon floating over Dubai desert at sunrise" />
+          <span class="package-card__badge">Early Morning</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Adventure &middot; Dubai</div>
+          <h3 class="package-card__title">Hot Air Balloon over Dubai Desert</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.9</span>
+            <span class="count">(38 reviews)</span>
+          </div>
+          <p class="package-card__desc">Float serenely above endless sand dunes at dawn. Champagne breakfast on landing included. An unforgettable start to any day.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 795 <span>/ person</span></div>
+          <a href="packages/hot-air-balloon-dubai.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 6. Ultimate Dubai Family Day -->
+      <article class="package-card" data-category="dubai family" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1538032079660-e4d4e3c25540?w=700&q=75"
+            alt="Family enjoying theme park and desert activities in Dubai" />
+          <span class="package-card__badge">Full Day</span>
+          <span class="tag--family" style="position:absolute;top:44px;left:12px;">FAMILY</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Family &middot; Dubai</div>
+          <h3 class="package-card__title">Ultimate Dubai Family Day (Theme Park + Desert + Dhow)</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.7</span>
+            <span class="count">(77 reviews)</span>
+          </div>
+          <p class="package-card__desc">Morning theme park thrills, afternoon camel rides in the desert, then an evening dhow cruise with family entertainment.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From AED 320 <span>/ person</span></div>
+          <a href="packages/dubai-family-day.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 7. Serengeti + Zanzibar -->
+      <article class="package-card" data-category="africa adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=75"
+            alt="Wildebeest migration across the Serengeti plains, Tanzania" />
+          <span class="package-card__badge">7 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Safari &middot; Tanzania</div>
+          <h3 class="package-card__title">Classic Serengeti Safari + Zanzibar Extension</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>5.0</span>
+            <span class="count">(34 reviews)</span>
+          </div>
+          <p class="package-card__desc">Witness the Great Migration, track the Big Five, then unwind on Zanzibar's pristine white-sand beaches. Africa at its finest.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 2,490 <span>/ person</span></div>
+          <a href="packages/serengeti-safari-zanzibar.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 8. Bwindi Gorilla Trekking -->
+      <article class="package-card" data-category="africa adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1612553949930-a7a3a5da1be2?w=700&q=75"
+            alt="Mountain gorilla face to face in Bwindi Forest, Uganda" />
+          <span class="package-card__badge">5 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Gorilla Trek &middot; Uganda</div>
+          <h3 class="package-card__title">Bwindi Gorilla Trekking Uganda</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.9</span>
+            <span class="count">(19 reviews)</span>
+          </div>
+          <p class="package-card__desc">Trek through Bwindi's ancient forest for a face-to-face encounter with mountain gorillas. A truly life-changing experience.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 1,890 <span>/ person</span></div>
+          <a href="packages/bwindi-gorilla-trekking.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 9. South Africa Highlights -->
+      <article class="package-card" data-category="africa adventure luxury" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=700&q=75"
+            alt="Lion on savannah in Kruger National Park at sunset" />
+          <span class="package-card__badge">8 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Safari + City &middot; South Africa</div>
+          <h3 class="package-card__title">South Africa Highlights: Kruger + Cape Town</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.9</span>
+            <span class="count">(27 reviews)</span>
+          </div>
+          <p class="package-card__desc">Big Five game drives in Kruger followed by Cape Town's vineyards, Table Mountain, and the Cape Peninsula. A world in one trip.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 2,890 <span>/ person</span></div>
+          <a href="packages/south-africa-highlights.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 10. Ethiopia -->
+      <article class="package-card" data-category="africa adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=700&q=75"
+            alt="Rock-hewn churches of Lalibela, Ethiopia carved from stone" />
+          <span class="package-card__badge">6 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Cultural &middot; Ethiopia</div>
+          <h3 class="package-card__title">Ethiopia Historical Circuit: Lalibela + Addis</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.8</span>
+            <span class="count">(12 reviews)</span>
+          </div>
+          <p class="package-card__desc">Explore the rock-hewn churches of Lalibela, Addis Ababa's vibrant markets, and Ethiopia's extraordinary 3,000-year-old history.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 1,690 <span>/ person</span></div>
+          <a href="packages/ethiopia-historical-circuit.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 11. Bali -->
+      <article class="package-card" data-category="asia adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=75"
+            alt="Bali rice terraces and lush tropical greenery" />
+          <span class="package-card__badge">7 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Discovery &middot; Indonesia</div>
+          <h3 class="package-card__title">Bali Discovery: Temples, Rice Terraces + Beaches</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.8</span>
+            <span class="count">(31 reviews)</span>
+          </div>
+          <p class="package-card__desc">Ancient temples, terraced rice fields at sunrise, traditional ceremonies, and the best beaches in Southeast Asia — all in one week.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 1,290 <span>/ person</span></div>
+          <a href="packages/bali-discovery.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+      <!-- 12. Rajasthan -->
+      <article class="package-card" data-category="asia luxury adventure" role="listitem">
+        <div class="package-card__img-wrap">
+          <img class="package-card__img" loading="lazy"
+            src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700&q=75"
+            alt="Taj Mahal at sunrise with reflection pool, Agra India" />
+          <span class="package-card__badge">8 Days</span>
+        </div>
+        <div class="package-card__body">
+          <div class="package-card__category">Heritage &middot; India</div>
+          <h3 class="package-card__title">Rajasthan Royal Heritage Tour</h3>
+          <div class="package-card__stars">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>4.9</span>
+            <span class="count">(22 reviews)</span>
+          </div>
+          <p class="package-card__desc">Palaces, forts, and desert dunes across Rajasthan's golden triangle. Jaipur, Udaipur, Jodhpur, and the iconic Taj Mahal.</p>
+        </div>
+        <div class="package-card__footer">
+          <div class="package-card__price">From USD 1,490 <span>/ person</span></div>
+          <a href="packages/rajasthan-heritage-tour.html" class="btn btn--secondary btn--sm">View Package</a>
+        </div>
+      </article>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ENQUIRY STRIP
+     ============================================================ -->
+<div class="enquiry-strip" role="region" aria-label="Custom package enquiry">
+  <div class="container">
+    <h2>Can't Find What You're Looking For?</h2>
+    <p>Tell us your destination, dates, and budget. We'll build a tailor-made package just for you.</p>
+    <div class="enquiry-strip__btns">
+      <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20a%20custom%20package%20built%20for%20me"
+         class="btn btn--primary btn--lg"
+         target="_blank" rel="noopener noreferrer">
+        <i class="ri-whatsapp-line"></i> WhatsApp Us
+      </a>
+      <a href="contact.html" class="btn btn--lg" style="background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.35);color:#fff;">
+        <i class="ri-mail-send-line"></i> Contact Form
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" aria-label="BGS Travel &amp; Tourism — Home">
+      <img src="assets/images/BGS Logo white and black_1.png" alt="BGS Travel &amp; Tourism" class="nav__logo-img" />
+      <span class="nav__logo-text">BGS <span>Travel & Tourism</span></span>
+    </a>
+        <p class="footer__about-text">
+          Dubai's home-grown travel & tourism company, crafting tailor-made trips to 15 destinations worldwide since 2014.
+        </p>
+        <div>
+          <div class="footer__contact-item">
+            <i class="ri-map-pin-line" style="color:var(--gold);margin-top:2px;"></i>
+            <span>DAMAS Tower, Office 205, 2nd Al Maktoum Rd, Bur Dubai, Dubai — UAE</span>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-phone-line" style="color:var(--gold);"></i>
+            <a href="tel:+971561348248">+971 56 134 8248</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-mail-line" style="color:var(--gold);"></i>
+            <a href="mailto:info@bgstravelandtourism.com">info@bgstravelandtourism.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <i class="ri-whatsapp-line" style="color:var(--whatsapp);"></i>
+            <a href="https://wa.me/971506944909" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+          </div>
+        </div>
+        <div class="footer__social" role="list" aria-label="Social media links">
+          <a href="#" class="footer__social-icon" aria-label="Instagram" role="listitem"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="Facebook" role="listitem"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="TikTok" role="listitem"><i class="ri-tiktok-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="YouTube" role="listitem"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="footer__social-icon" aria-label="LinkedIn" role="listitem"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Destinations</h3>
+        <nav class="footer__links" aria-label="Destination links">
+          <a href="destinations/dubai.html" class="footer__link">UAE &amp; Dubai</a>
+          <a href="destinations/tanzania.html" class="footer__link">Tanzania</a>
+          <a href="destinations/south-africa.html" class="footer__link">South Africa</a>
+          <a href="destinations/ethiopia.html" class="footer__link">Ethiopia</a>
+          <a href="destinations/uganda.html" class="footer__link">Uganda</a>
+          <a href="destinations/zambia.html" class="footer__link">Zambia</a>
+          <a href="destinations/malawi.html" class="footer__link">Malawi</a>
+          <a href="destinations/mozambique.html" class="footer__link">Mozambique</a>
+          <a href="destinations/india.html" class="footer__link">India</a>
+          <a href="destinations/pakistan.html" class="footer__link">Pakistan</a>
+          <a href="destinations/indonesia.html" class="footer__link">Indonesia</a>
+          <a href="destinations/germany.html" class="footer__link">Germany</a>
+          <a href="destinations/united-kingdom.html" class="footer__link">United Kingdom</a>
+          <a href="destinations/moldova.html" class="footer__link">Moldova</a>
+          <a href="destinations/panama.html" class="footer__link">Panama</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Quick links">
+          <a href="packages.html" class="footer__link">All Packages</a>
+          <a href="activities.html" class="footer__link">Activities</a>
+          <a href="visa.html" class="footer__link">Visa Services</a>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="contact.html" class="footer__link">Contact Us</a>
+          <a href="blog.html" class="footer__link">Blog &amp; Travel Guides</a>
+          <a href="privacy.html" class="footer__link" style="margin-top:8px;">Privacy Policy</a>
+          <a href="terms.html" class="footer__link">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__col-heading">Stay Inspired</h3>
+        <p class="footer__newsletter-text">
+          Get weekly travel deals, destination guides, and insider tips delivered straight to your inbox.
+        </p>
+        <form class="footer__newsletter-form" novalidate aria-label="Newsletter signup">
+          <input class="footer__newsletter-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+        </form>
+        <p class="footer__license">Dubai Tourism Licence: [LICENCE NO]</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 BGS Travel and Tourism LLC. All Rights Reserved.</span>
+      <span>&middot; Dubai, UAE &middot;</span>
+      <span>Designed with care for every traveller.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     STICKY MOBILE BOTTOM BAR
+     ============================================================ -->
+<div class="sticky-bar" role="navigation" aria-label="Mobile quick actions">
+  <a href="https://wa.me/971506944909?text=Hi%20BGS%20Travel%2C%20I%27d%20like%20to%20book%20a%20trip"
+     class="sticky-bar__btn sticky-bar__btn--wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <i class="ri-whatsapp-line"></i> WhatsApp Us
+  </a>
+  <a href="contact.html" class="sticky-bar__btn sticky-bar__btn--plan" aria-label="Plan my trip">
+    <i class="ri-map-2-line"></i> Plan My Trip
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  // Package filtering
+  var filterBtns = document.querySelectorAll('.pkg-filter');
+  var cards = document.querySelectorAll('#packagesGrid .package-card');
+  var countEl = document.getElementById('packagesCount');
+
+  function updateCount() {
+    var visible = document.querySelectorAll('#packagesGrid .package-card:not([data-hidden="true"])').length;
+    countEl.textContent = 'Showing ' + visible + ' package' + (visible !== 1 ? 's' : '');
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = btn.getAttribute('data-filter');
+
+      // Update button states
+      filterBtns.forEach(function (b) {
+        b.classList.remove('pkg-filter--active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('pkg-filter--active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      // Filter cards
+      cards.forEach(function (card) {
+        var cats = card.getAttribute('data-category') || '';
+        if (filter === 'all' || cats.indexOf(filter) !== -1) {
+          card.removeAttribute('data-hidden');
+        } else {
+          card.setAttribute('data-hidden', 'true');
+        }
+      });
+
+      updateCount();
+    });
+  });
+
+  updateCount();
+})();
+</script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+      });
+    }
+  </script>
+</body>
+</html>
