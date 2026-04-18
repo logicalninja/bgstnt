@@ -1939,71 +1939,171 @@ input, textarea, select { font-family: inherit; }
 /* ============================================================
    27. AZERBAIJAN SPOTLIGHT
    ============================================================ */
-.az-spotlight { background: var(--bg-dark); color: var(--white); overflow: hidden; }
+.az-spotlight {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  color: var(--white);
+}
+.az-spotlight__bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #0d1a2e;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+.az-spotlight:hover .az-spotlight__bg { transform: scale(1); }
+.az-spotlight__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(5,15,30,0.93) 0%, rgba(5,15,30,0.88) 50%, rgba(5,15,30,0.75) 100%);
+}
+.az-spotlight__shell {
+  position: relative; z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 1024px) { .az-spotlight__shell { padding: 0 60px; } }
+
+/* Top bar */
+.az-top-bar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.az-top-bar__new {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(201,151,44,0.2); border: 1px solid var(--gold);
+  color: var(--gold); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 50px;
+}
+.az-top-bar__urgency {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(220,60,30,0.18); border: 1px solid rgba(220,100,80,0.5);
+  color: #ff8a7a; font-size: 0.78rem; font-weight: 600;
+  padding: 5px 14px; border-radius: 50px;
+}
+
+/* Inner grid */
 .az-spotlight__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 1fr 420px;
+  gap: 56px;
+  align-items: start;
 }
-.az-spotlight__content .eyebrow { color: var(--gold); margin-bottom: 12px; }
-.az-spotlight__content h2 { color: var(--white); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; line-height: 1.15; }
-.az-spotlight__content h2 em { color: var(--gold); font-style: italic; }
-.az-spotlight__lead { color: rgba(255,255,255,0.78); font-size: 1rem; line-height: 1.75; margin-bottom: 28px; }
 
-.az-highlights { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px; }
-.az-highlights li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-size: 0.9rem; }
-.az-highlights li i { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
-
-.az-packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
-.az-pkg {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 18px 14px;
-  text-decoration: none;
-  color: var(--white);
-  display: flex; flex-direction: column; gap: 4px;
-  position: relative;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  overflow: hidden;
-}
-.az-pkg:hover { background: rgba(201,151,44,0.15); border-color: var(--gold); transform: translateY(-3px); }
-.az-pkg--featured { background: rgba(201,151,44,0.18); border-color: var(--gold); }
-.az-pkg__badge {
-  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--black); font-size: 0.65rem; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 0 0 8px 8px; white-space: nowrap;
-}
-.az-pkg__name { font-weight: 700; font-size: 0.9rem; margin-top: 14px; }
-.az-pkg--featured .az-pkg__name { margin-top: 18px; }
-.az-pkg__dur { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
-.az-pkg__price { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 6px; }
-.az-pkg__price strong { color: var(--gold); font-size: 1rem; }
-.az-pkg__price span { font-size: 0.7rem; display: block; color: rgba(255,255,255,0.45); }
-.az-pkg__cta { font-size: 0.78rem; color: var(--gold); font-weight: 600; margin-top: 8px; display: flex; align-items: center; gap: 4px; }
-
-.az-spotlight__media { position: relative; }
-.az-spotlight__img-wrap { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
-.az-spotlight__img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.az-spotlight__location-tag {
-  position: absolute; bottom: 20px; left: 20px;
-  background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
-  color: var(--white); font-size: 0.8rem; font-weight: 600;
-  padding: 8px 14px; border-radius: 50px;
+/* Left column */
+.az-country {
   display: flex; align-items: center; gap: 6px;
-  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55); font-size: 0.85rem;
+  margin-bottom: 12px;
 }
-.az-spotlight__location-tag i { color: var(--gold); }
+.az-country i { color: var(--gold); }
+.az-spotlight__left h2 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.05; color: var(--white);
+  margin-bottom: 20px; font-family: var(--font-display);
+}
+.az-spotlight__left h2 em { color: var(--gold); font-style: italic; display: block; }
+.az-spotlight__lead {
+  font-size: 1rem; line-height: 1.75;
+  color: rgba(255,255,255,0.72); margin-bottom: 32px; max-width: 500px;
+}
+.az-spotlight__lead strong { color: var(--white); }
 
-@media (max-width: 900px) {
-  .az-spotlight__inner { grid-template-columns: 1fr; gap: 40px; }
-  .az-spotlight__media { order: -1; }
-  .az-spotlight__img-wrap { aspect-ratio: 16/9; }
-  .az-packages { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.az-stats-row {
+  display: flex; gap: 28px; margin-bottom: 32px; flex-wrap: wrap;
 }
-@media (max-width: 480px) {
-  .az-packages { grid-template-columns: 1fr; }
+.az-stat { display: flex; flex-direction: column; gap: 2px; }
+.az-stat__num { font-size: 1.4rem; font-weight: 800; color: var(--gold); font-family: var(--font-body); }
+.az-stat__lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.az-highlights { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.az-highlights li {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.8); font-size: 0.9rem;
+}
+.az-highlights li i { color: #4ade80; font-size: 1rem; flex-shrink: 0; }
+
+/* Right column — Package card */
+.az-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+}
+.az-card__header {
+  background: linear-gradient(135deg, #A0721A 0%, #C9972C 60%, #E8B84B 100%);
+  padding: 20px 24px 18px;
+}
+.az-card__badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(0,0,0,0.25); color: var(--white);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 50px;
+  margin-bottom: 8px;
+}
+.az-card__title { font-size: 1.15rem; font-weight: 800; color: var(--white); }
+
+.az-card__price-block {
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.az-card__price-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.45); margin-bottom: 4px; }
+.az-card__price { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1; }
+.az-card__price-num { font-size: 2.6rem; font-weight: 900; color: var(--gold); font-family: var(--font-body); }
+.az-card__per { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+.az-card__includes {
+  list-style: none; padding: 20px 24px 16px; margin: 0;
+  display: flex; flex-direction: column; gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.az-card__includes li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.82); }
+.az-card__includes li i { color: var(--gold); font-size: 1.05rem; flex-shrink: 0; margin-top: 1px; }
+.az-card__includes li span strong { color: var(--white); }
+
+.az-card__urgency {
+  margin: 14px 24px;
+  background: rgba(220,60,30,0.15); border: 1px solid rgba(220,100,80,0.3);
+  border-radius: 8px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; color: #ff9d8f;
+}
+.az-card__urgency i { font-size: 1rem; flex-shrink: 0; }
+
+.az-card__cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 0 24px 16px;
+  background: #25D366; color: var(--white);
+  font-size: 0.9rem; font-weight: 700;
+  padding: 14px 20px; border-radius: 12px;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+}
+.az-card__cta:hover { background: #1ebe5a; transform: translateY(-2px); }
+.az-card__cta i { font-size: 1.2rem; }
+
+.az-card__note {
+  text-align: center; font-size: 0.72rem;
+  color: rgba(255,255,255,0.35); padding: 0 24px 18px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .az-spotlight__inner { grid-template-columns: 1fr; gap: 44px; }
+  .az-card { max-width: 480px; }
+}
+@media (max-width: 600px) {
+  .az-spotlight { padding: 60px 0; }
+  .az-spotlight__left h2 { font-size: 2.6rem; }
+  .az-card { max-width: 100%; }
+  .az-stats-row { gap: 20px; }
 }
 
 /* ============================================================

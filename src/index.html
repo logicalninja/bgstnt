@@ -17,7 +17,7 @@
   <meta name="geo.region" content="AE-DU" />
   <meta name="geo.placename" content="Dubai, UAE" />
   <link rel="canonical" href="https://bgstravelandtourism.netlify.app/" />
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
   <link rel="icon" type="image/png" href="assets/images/BGS Logo white and black_1.png" />
   <link rel="apple-touch-icon" href="assets/images/BGS Logo white and black_1.png" />
   <!-- Remix Icons (free open source icon set) -->
@@ -425,57 +425,75 @@
 <!-- ============================================================
      AZERBAIJAN SPOTLIGHT — New Destination Feature
      ============================================================ -->
-<section class="section az-spotlight" aria-labelledby="az-heading">
-  <div class="container">
+<section class="az-spotlight" aria-labelledby="az-heading">
+
+  <!-- Background image with overlay -->
+  <div class="az-spotlight__bg" style="background-image:url('https://images.unsplash.com/photo-1596306499317-8490c6d9d870?w=1600&q=80')" aria-hidden="true"></div>
+  <div class="az-spotlight__overlay" aria-hidden="true"></div>
+
+  <div class="az-spotlight__shell">
+
+    <!-- TOP: Labels row -->
+    <div class="az-top-bar">
+      <span class="az-top-bar__new"><i class="ri-sparkling-line"></i> New Destination</span>
+      <span class="az-top-bar__urgency"><i class="ri-fire-line"></i> Selling Fast — Limited Seats This Month</span>
+    </div>
+
     <div class="az-spotlight__inner">
 
-      <!-- LEFT: Content -->
-      <div class="az-spotlight__content">
-        <p class="eyebrow">✦ New Destination Now Available</p>
-        <h2 id="az-heading">Discover <em>Baku,</em><br>Azerbaijan</h2>
-        <p class="az-spotlight__lead">Where ancient history meets a futuristic skyline. Explore the UNESCO-listed Old City, marvel at the iconic Flame Towers, cruise the Caspian Sea, and feast on cuisine that bridges East and West — all just 1h 50m from Dubai.</p>
+      <!-- LEFT: Destination info -->
+      <div class="az-spotlight__left">
+        <p class="az-country"><i class="ri-map-pin-2-line"></i> Azerbaijan</p>
+        <h2 id="az-heading">Discover<br><em>Baku</em></h2>
+        <p class="az-spotlight__lead">Where ancient walled cities meet a glittering skyline. The Flame Towers, UNESCO Old City, Caspian Sea shores — and a culture that mixes East and West like nowhere else. Just <strong>1h 50m from Dubai.</strong></p>
 
-        <ul class="az-highlights">
-          <li><i class="ri-fire-line"></i> Flame Towers &amp; Modern Architecture</li>
-          <li><i class="ri-ancient-gate-line"></i> Icherisheher — UNESCO World Heritage Old City</li>
-          <li><i class="ri-ship-line"></i> Caspian Sea &amp; Mud Volcanoes</li>
-          <li><i class="ri-restaurant-2-line"></i> World-Class Azerbaijani Cuisine</li>
-          <li><i class="ri-flight-takeoff-line"></i> Direct Flights from Dubai — ~1h 50m</li>
-        </ul>
-
-        <!-- 3 Package tiers -->
-        <div class="az-packages">
-          <a href="https://wa.me/971528992964?text=Hi%20BGS%2C%20I%27m%20interested%20in%20the%20Baku%20City%20Break%20package%20(4D%2F3N).%20Please%20share%20details%20and%20pricing." class="az-pkg" target="_blank" rel="noopener">
-            <div class="az-pkg__name">City Break</div>
-            <div class="az-pkg__dur">4 Days / 3 Nights</div>
-            <div class="az-pkg__price">From <strong>AED 1,890</strong><span>/person</span></div>
-            <div class="az-pkg__cta">Enquire <i class="ri-whatsapp-line"></i></div>
-          </a>
-          <a href="https://wa.me/971528992964?text=Hi%20BGS%2C%20I%27m%20interested%20in%20the%20Baku%20Explorer%20package%20(6D%2F5N).%20Please%20share%20details%20and%20pricing." class="az-pkg az-pkg--featured" target="_blank" rel="noopener">
-            <div class="az-pkg__badge">Most Popular</div>
-            <div class="az-pkg__name">Explorer</div>
-            <div class="az-pkg__dur">6 Days / 5 Nights</div>
-            <div class="az-pkg__price">From <strong>AED 2,690</strong><span>/person</span></div>
-            <div class="az-pkg__cta">Enquire <i class="ri-whatsapp-line"></i></div>
-          </a>
-          <a href="https://wa.me/971528992964?text=Hi%20BGS%2C%20I%27m%20interested%20in%20the%20Baku%20Luxury%20package%20(8D%2F7N).%20Please%20share%20details%20and%20pricing." class="az-pkg" target="_blank" rel="noopener">
-            <div class="az-pkg__name">Luxury</div>
-            <div class="az-pkg__dur">8 Days / 7 Nights</div>
-            <div class="az-pkg__price">From <strong>AED 3,990</strong><span>/person</span></div>
-            <div class="az-pkg__cta">Enquire <i class="ri-whatsapp-line"></i></div>
-          </a>
+        <div class="az-stats-row">
+          <div class="az-stat"><span class="az-stat__num">1h 50m</span><span class="az-stat__lbl">Flight from Dubai</span></div>
+          <div class="az-stat"><span class="az-stat__num">4 Days</span><span class="az-stat__lbl">3 Nights Package</span></div>
+          <div class="az-stat"><span class="az-stat__num">5-in-1</span><span class="az-stat__lbl">Everything Included</span></div>
         </div>
 
-        <a href="https://wa.me/971528992964?text=Hi%20BGS%20Travel%20%26%20Tourism%2C%20I%27m%20interested%20in%20Baku%2C%20Azerbaijan.%20Please%20share%20available%20packages%20and%20pricing." class="btn btn--primary" target="_blank" rel="noopener" style="margin-top:28px;">
-          <i class="ri-whatsapp-line"></i> WhatsApp Us — Limited Spots Available
-        </a>
+        <ul class="az-highlights">
+          <li><i class="ri-checkbox-circle-fill"></i> Iconic Flame Towers &amp; Old City (UNESCO)</li>
+          <li><i class="ri-checkbox-circle-fill"></i> Caspian Sea &amp; local cuisine experiences</li>
+          <li><i class="ri-checkbox-circle-fill"></i> Best value emerging destination from UAE</li>
+          <li><i class="ri-checkbox-circle-fill"></i> BGS-managed end-to-end — zero stress</li>
+        </ul>
       </div>
 
-      <!-- RIGHT: Image -->
-      <div class="az-spotlight__media">
-        <div class="az-spotlight__img-wrap">
-          <img src="https://images.unsplash.com/photo-1573165265324-4eddf1f7a5cb?w=900&q=80" alt="Flame Towers, Baku, Azerbaijan at night" class="az-spotlight__img" loading="lazy">
-          <div class="az-spotlight__location-tag"><i class="ri-map-pin-2-line"></i> Baku, Azerbaijan</div>
+      <!-- RIGHT: Package card -->
+      <div class="az-spotlight__right">
+        <div class="az-card">
+
+          <div class="az-card__header">
+            <div class="az-card__badge"><i class="ri-award-fill"></i> All-Inclusive Package</div>
+            <div class="az-card__title">Baku 4 Days / 3 Nights</div>
+          </div>
+
+          <div class="az-card__price-block">
+            <div class="az-card__price-label">Package price</div>
+            <div class="az-card__price">AED <span class="az-card__price-num">2,500</span></div>
+            <div class="az-card__per">per person · all inclusive</div>
+          </div>
+
+          <ul class="az-card__includes">
+            <li><i class="ri-flight-takeoff-line"></i><span><strong>Return Flight Tickets</strong> — Dubai ↔ Baku</span></li>
+            <li><i class="ri-hotel-line"></i><span><strong>3-Star Hotel</strong> — 3 nights in Baku</span></li>
+            <li><i class="ri-restaurant-line"></i><span><strong>Daily Breakfast</strong> included</span></li>
+            <li><i class="ri-passport-line"></i><span><strong>Azerbaijan Visa</strong> — handled by BGS</span></li>
+            <li><i class="ri-shield-check-line"></i><span><strong>Travel Insurance</strong> included</span></li>
+          </ul>
+
+          <div class="az-card__urgency">
+            <i class="ri-alarm-warning-line"></i>
+            <span>Spots filling fast — WhatsApp us to secure yours now</span>
+          </div>
+
+          <a href="https://wa.me/971528992964?text=Hi%20BGS%2C%20I%27m%20interested%20in%20the%20Baku%204D%2F3N%20package%20for%20AED%202%2C500.%20Please%20confirm%20availability%20and%20upcoming%20dates." class="az-card__cta" target="_blank" rel="noopener">
+            <i class="ri-whatsapp-line"></i> Book on WhatsApp — Instant Confirmation
+          </a>
+
+          <p class="az-card__note"><i class="ri-information-line"></i> Non-refundable · Departure dates subject to availability</p>
         </div>
       </div>
 
